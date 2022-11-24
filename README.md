@@ -66,4 +66,8 @@ Situs Ecoist adalah situs yang bertujuan untuk menyebarkan kesadaran kepada masy
     
     
 ## Alur pengintegrasian dengan web service untuk terhubung dengan aplikasi web yang sudah dibuat saat Proyek Tengah Semester
-
+1. Melengkapi end point pada web untuk tiap modul (baik untuk mengambil dan mengirim data).
+2. Menambahkan middleware di django agar API dapat diakses dari luar website.
+3. Membuat fungsi async untuk setiap proses yang berkaitan dengan mengambil, mengirim, dan mengubah data.
+4. Untuk mengambil data akan digunakan HTTP GET dari end point data di web yang hasil pemanggilannya akan digunakan untuk ditampilkan pada widget yang digunakan.
+5. Untuk mengirim data akan digunakan HTTP POST yang menuju ke end point untuk menyimpan data yang ada di database Django.
