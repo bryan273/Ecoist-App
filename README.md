@@ -63,4 +63,7 @@ Situs Ecoist adalah situs yang bertujuan untuk menyebarkan kesadaran kepada masy
 2. Admin
 
     Admin atau administrator berperan sebagai pemegang kendali website dan memiliki akses penuh untuk melihat user database melalui dashboard admin. 
+    
+    
+## Alur pengintegrasian dengan web service untuk terhubung dengan aplikasi web yang sudah dibuat saat Proyek Tengah Semester
 
