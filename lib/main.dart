@@ -1,30 +1,39 @@
+// import 'package:ecoist/landing/components/drawer_dokter.dart';
+// import 'package:ecoist/landing/components/drawer_pasien.dart';
+import 'package:ecoist/landing/components/drawer_unlogin.dart';
+// import 'package:ecoist/pelayananDokter/page/pelayanan_dokter.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ecoist/landing/page/login_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+      child: MaterialApp(
+        title: 'Flutter App',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        routes: {
+          "/login": (BuildContext context) => const LoginPage(),
+          // "/pelayananDokter": (BuildContext context) =>
+          //     const PelayananDokterPage(),
+          '/home': (BuildContext context) => const MyHomePage(title: "-"),
+        },
+        initialRoute: "/home",
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -73,8 +82,15 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: const Text("UIHealCast"),
       ),
+      drawer: const DrawerUnlogin(),
+          // widget.title == "-"
+          // ? const DrawerUnlogin()
+          // : widget.title == "Dokter"
+          //     ? const DrawerDokter()
+          //     : const DrawerPasien(),
+
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
