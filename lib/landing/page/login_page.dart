@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
+// var port = '10.0.2.2';
+var port = '127.0.0.1';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -26,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text("Login to your Account"),
       ),
-      drawer: DrawerUnlogin(),
+      drawer: const DrawerUnlogin(),
       body: Form(
         key: _loginFormKey,
         child: SingleChildScrollView(
@@ -109,32 +112,33 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             TextButton(
-              child: const Text(
-                "Simpan",
-                style: TextStyle(color: Colors.white),
-              ),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.blue),
               ),
               onPressed: () async {
                 final response =
-                    await request.login("http://10.0.2.2:8000/login/", {
+                    await request.login("http://$port:8000/login/", {
                   'username': username,
                   'password': password1,
                 });
 
                 if (request.loggedIn) {
                   if (_loginFormKey.currentState!.validate()) {
+                    // ignore: use_build_context_synchronously
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (BuildContext context) => response["statDok"]
-                              ? const MyHomePage(title: "Dokter")
-                              : const MyHomePage(title: "Pasien"),
+                          builder: (BuildContext context) => response["isAdmin"]
+                              ? const MyHomePage(title: "Admin")
+                              : const MyHomePage(title: "User"),
                         ));
                   }
                 }
               },
+              child: const Text(
+                "Simpan",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ]),
         )),

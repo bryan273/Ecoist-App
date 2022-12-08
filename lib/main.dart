@@ -1,7 +1,7 @@
-// import 'package:ecoist/landing/components/drawer_dokter.dart';
-// import 'package:ecoist/landing/components/drawer_pasien.dart';
+import 'package:ecoist/landing/components/drawer_admin.dart';
+import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/landing/components/drawer_unlogin.dart';
-// import 'package:ecoist/pelayananDokter/page/pelayanan_dokter.dart';
+import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           "/login": (BuildContext context) => const LoginPage(),
-          // "/pelayananDokter": (BuildContext context) =>
-          //     const PelayananDokterPage(),
+          "/admin_ecoist": (BuildContext context) =>
+              const AdminEcoistPage(),
           '/home': (BuildContext context) => const MyHomePage(title: "-"),
         },
         initialRoute: "/home",
@@ -82,14 +82,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: const Text("UIHealCast"),
+        title: const Text("ECOIST"),
       ),
-      drawer: const DrawerUnlogin(),
-          // widget.title == "-"
-          // ? const DrawerUnlogin()
-          // : widget.title == "Dokter"
-          //     ? const DrawerDokter()
-          //     : const DrawerPasien(),
+      drawer: 
+          widget.title == "-"
+          ? const DrawerUnlogin()
+          : widget.title == "Admin"
+              ? const DrawerAdmin()
+              : const DrawerUser(),
 
       body: Center(
         // Center is a layout widget. It takes a single child and positions it

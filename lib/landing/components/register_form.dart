@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
+// var port = '10.0.2.2';
+var port = '127.0.0.1';
+
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key, required this.formKey});
 
+  // ignore: prefer_typing_uninitialized_variables
   final formKey;
 
   @override
@@ -139,22 +143,19 @@ class _FormRegister extends State<RegisterForm> {
             ),
           ),
           TextButton(
-            child: const Text(
-              "Simpan",
-              style: TextStyle(color: Colors.white),
-            ),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.blue),
             ),
             onPressed: () async {
               final response = await request.post(
-                  'http://10.0.2.2:8000/register/', {
+                  'http://$port/register/', {
                 "username": username,
                 "password1": password,
                 "password2": password1
               });
 
               if (formKey.currentState!.validate()) {
+                // ignore: use_build_context_synchronously
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
@@ -163,6 +164,10 @@ class _FormRegister extends State<RegisterForm> {
                     ));
               }
             },
+            child: const Text(
+              "Simpan",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ]),
       )),
