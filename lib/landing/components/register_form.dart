@@ -1,10 +1,10 @@
-import 'package:ecoist/main.dart';
+import 'package:ecoist/landing/page/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 // var port = '10.0.2.2';
-var port = '127.0.0.1';
+var port = '127.0.0.1:8000';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key, required this.formKey});
@@ -19,10 +19,10 @@ class RegisterForm extends StatefulWidget {
 class _FormRegister extends State<RegisterForm> {
   get formKey => widget.formKey;
 
-  String? password;
-  String? username;
-  String? password1;
-
+  String? password = "";
+  String? username = "";
+  String? password1 = "";
+  String? message = "";
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
@@ -34,7 +34,8 @@ class _FormRegister extends State<RegisterForm> {
         padding: const EdgeInsets.all(20.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Center(
-            child: Text("Register"),
+            child: Text("Register", 
+                        style: TextStyle(fontSize: 18),),
           ),
           Padding(
             // Menggunakan padding sebesar 8 pixels
@@ -61,13 +62,13 @@ class _FormRegister extends State<RegisterForm> {
                   username = value!;
                 });
               },
-              // Validator sebagai validasi form
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return 'Email tidak boleh kosong!';
-                }
-                return null;
-              },
+              // // Validator sebagai validasi form
+              // validator: (String? value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Email tidak boleh kosong!';
+              //   }
+              //   return null;
+              // },
             ),
           ),
           Padding(
@@ -98,12 +99,12 @@ class _FormRegister extends State<RegisterForm> {
                 });
               },
               // Validator sebagai validasi form
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return 'Password tidak boleh kosong!';
-                }
-                return null;
-              },
+              // validator: (String? value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Password tidak boleh kosong!';
+              //   }
+              //   return null;
+              // },
             ),
           ),
           Padding(
@@ -133,42 +134,60 @@ class _FormRegister extends State<RegisterForm> {
                   password1 = value!;
                 });
               },
-              // Validator sebagai validasi form
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return 'Password tidak boleh kosong!';
-                }
-                return null;
-              },
+              // // Validator sebagai validasi form
+              // validator: (String? value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Password tidak boleh kosong!';
+              //   }
+              //   return null;
+              // },
             ),
           ),
-          TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.blue),
-            ),
-            onPressed: () async {
-              final response = await request.post(
-                  'http://$port/register/', {
-                "username": username,
-                "password1": password,
-                "password2": password1
-              });
+          Padding(
+            // Menggunakan padding sebesar 8 pixels
+            padding: const EdgeInsets.all(24.0),
+            child:Center (
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 21, 104, 230)),
+                
+              ),
+              onPressed: () async {
+                final response = await request.post(
+                    'http://$port/flutter_register/', {
+                  "username": username,
+                  "password1": password,
+                  "password2": password1
+                });
 
-              if (formKey.currentState!.validate()) {
-                // ignore: use_build_context_synchronously
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const MyHomePage(title: "-"),
-                    ));
-              }
-            },
-            child: const Text(
-              "Simpan",
-              style: TextStyle(color: Colors.white),
+                print(formKey);
+                print(response['status']==false);
+
+                if (response['status']==true) {
+                  // ignore: use_build_context_synchronously
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            const LoginPage(),
+                      ));
+                } else {
+                  setState(() {
+                    message = response['message'];
+                    print(message);
+                  });
+                }
+              },
+              child: const Text(
+                "Simpan",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ),
             ),
           ),
+          Center(
+            child: Text(message ?? "",
+                        style: const TextStyle(color: Colors.red, fontSize: 16),)),
         ]),
       )),
     );
