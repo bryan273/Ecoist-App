@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 // var port = '10.0.2.2';
-var port = '127.0.0.1';
+var port = '127.0.0.1:8000';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,7 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   final _loginFormKey = GlobalKey<FormState>();
 
   String username = "";
-  String password1 = "";
+  String password = "";
+  String? message = "";
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
@@ -39,7 +40,8 @@ class _LoginPageState extends State<LoginPage> {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const Center(
-              child: Text("Sign In to Continue"),
+              child: Text("Sign In to Continue", 
+                        style: TextStyle(fontSize: 18),),
             ),
             Padding(
               // Menggunakan padding sebesar 8 pixels
@@ -67,12 +69,12 @@ class _LoginPageState extends State<LoginPage> {
                   });
                 },
                 // Validator sebagai validasi form
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Email tidak boleh kosong!';
-                  }
-                  return null;
-                },
+                // validator: (String? value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Email tidak boleh kosong!';
+                //   }
+                //   return null;
+                // },
               ),
             ),
             Padding(
@@ -93,37 +95,43 @@ class _LoginPageState extends State<LoginPage> {
                 // Menambahkan behavior saat nama diketik
                 onChanged: (String? value) {
                   setState(() {
-                    password1 = value!;
+                    password = value!;
                   });
                 },
                 // Menambahkan behavior saat data disimpan
                 onSaved: (String? value) {
                   setState(() {
-                    password1 = value!;
+                    password = value!;
                   });
                 },
                 // Validator sebagai validasi form
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Password tidak boleh kosong!';
-                  }
-                  return null;
-                },
+                // validator: (String? value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Password tidak boleh kosong!';
+                //   }
+                //   return null;
+                // },
               ),
             ),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
-              ),
-              onPressed: () async {
-                final response =
-                    await request.login("http://$port:8000/login/", {
-                  'username': username,
-                  'password': password1,
-                });
+            Padding(
+              // Menggunakan padding sebesar 8 pixels
+              padding: const EdgeInsets.all(24.0),
+              child:Center (
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 21, 104, 230)),
+                  
+                ),
+                onPressed: () async {
+                  final response = await request.post(
+                      'http://$port/flutter_login/', {
+                    "username": username,
+                    "password": password,
+                  });
 
-                if (request.loggedIn) {
-                  if (_loginFormKey.currentState!.validate()) {
+                  print(response['status']==false);
+
+                  if (response['status']==true) {
                     // ignore: use_build_context_synchronously
                     Navigator.pushReplacement(
                         context,
@@ -132,14 +140,22 @@ class _LoginPageState extends State<LoginPage> {
                               ? const MyHomePage(title: "Admin")
                               : const MyHomePage(title: "User"),
                         ));
+                  } else {
+                    setState(() {
+                      message = response['message'];
+                    });
                   }
-                }
-              },
-              child: const Text(
-                "Simpan",
-                style: TextStyle(color: Colors.white),
+                },
+                child: const Text(
+                  "Simpan",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
               ),
             ),
+            Center(
+              child: Text(message ?? "",
+                          style: const TextStyle(color: Colors.red, fontSize: 16),)),
           ]),
         )),
       ),

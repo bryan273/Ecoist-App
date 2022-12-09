@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 2022/12/08-23:13:48.646 10a7c Log #3: 12 ops saved to Table #4 OK
 2022/12/08-23:13:48.648 10a7c Archiving C:\Users\mazay\AppData\Local\Temp\flutter_tools.a6515a6c\flutter_tools_chrome_device.7a243224\Default\Site Characteristics Database/000003.log: OK
 2022/12/08-23:13:48.648 10a7c Table #4: 12 entries OK
 2022/12/08-23:13:48.651 10a7c Archiving C:\Users\mazay\AppData\Local\Temp\flutter_tools.a6515a6c\flutter_tools_chrome_device.7a243224\Default\Site Characteristics Database/MANIFEST-000001: OK
 2022/12/08-23:13:48.661 10a7c **** Repaired leveldb C:\Users\mazay\AppData\Local\Temp\flutter_tools.a6515a6c\flutter_tools_chrome_device.7a243224\Default\Site Characteristics Database; recovered 1 files; 499 bytes. Some data may have been lost. ****
+=======
+2022/12/08-23:23:29.674 3368 Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.c1736c06\flutter_tools_chrome_device.59f43251\Default\Site Characteristics Database/MANIFEST-000001
+2022/12/08-23:23:29.675 3368 Recovering log #3
+2022/12/08-23:23:29.675 3368 Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.c1736c06\flutter_tools_chrome_device.59f43251\Default\Site Characteristics Database/000003.log 
+>>>>>>> 5a8168549ea427a906c9689c841759fbb6e51d81
