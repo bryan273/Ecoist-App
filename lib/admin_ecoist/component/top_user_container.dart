@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class TopUserContainer extends StatefulWidget {
-  const TopUserContainer({super.key});
+  const TopUserContainer({Key? key, }) : super(key: key);
 
   @override
   State<TopUserContainer> createState() => _TopUserState();

@@ -1,4 +1,4 @@
-import 'dart:html';
+// import 'dart:html';
 
 import 'package:ecoist/main.dart';
 import 'package:ecoist/landing/components/drawer_unlogin.dart';
@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyDonatePage extends StatefulWidget {
-  const MyDonatePage({super.key});
+  const MyDonatePage({Key? key, }) : super(key: key);
 
   @override
   State<MyDonatePage> createState() => _MyDonatePageState();

@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:ecoist/landing/components/drawer_admin.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/landing/components/drawer_unlogin.dart';
@@ -12,7 +13,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key key,  this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsFlutterBinding.ensureInitialized();
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
