@@ -1,8 +1,8 @@
 import 'dart:html';
 
 import 'package:ecoist/landing/components/drawer_user.dart';
-// import 'package:ecoist/main.dart';
-// import 'package:ecoist/landing/components/drawer_unlogin.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,8 +23,27 @@ class _MyDonatePageState extends State<MyDonatePage> {
   double jumlahPohon = 1;
   String pesan = "";
 
-  bool isNumeric(String value){
+  bool isNumeric(String value) {
     return double.tryParse(value) != null;
+  }
+
+  Future<void> submit(BuildContext context, double nominal, String namaPohon,
+      double jumlahPohon, String pesan) async {
+    double nominalController = nominal;
+    String namaPohonController = namaPohon;
+    double jumlahPohonController = jumlahPohon;
+    String pesanController = pesan;
+    final response =
+        await http.post(Uri.parse("https://ecoist.up.railway.app/json/"),
+            headers: <String, String>{'Content-Type': 'application/json'},
+            body: jsonEncode(<String, dynamic>{
+              'nominal': nominalController,
+              'namaPohon': namaPohonController,
+              'jumlahPohon': jumlahPohonController,
+              'pesan': pesanController,
+            }));
+    // ignore: avoid_print
+    print(response.body);
   }
 
   @override
@@ -162,58 +181,68 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             ),
                           ),
                           TextButton(
-                  child: const Text(
-                    "Donasi",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                            child: const Text(
+                              "Donasi",
+                              style: TextStyle(color: Colors.white),
                             ),
-                            elevation: 15,
-                            child: Container(
-                              child: ListView(
-                                padding:
-                                    const EdgeInsets.only(top: 20, bottom: 20),
-                                shrinkWrap: true,
-                                children: <Widget>[
-                                  Center(child: const Text('Success!')),
-                                  SizedBox(height: 20, width: 50),
-                                  Center(
-                                    child:(
-                                      Text('Selamat! Anda telah berdonasi sebesar IDR ' + nominal.toString() + ' dan ' + jumlahPohon.round().toString() + 'x ' + namaPohon)
-
-                                    )
-                                  ),
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        'Kembali',
-                                      )),
-                                ],
-                              ),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.blue),
                             ),
-                          );
-                        },
-                      );
-                    }
-                  },
-                ),
-              ]
-            )
-          )
-        )
-      )
-    );
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      elevation: 15,
+                                      child: Container(
+                                        child: ListView(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 20),
+                                          shrinkWrap: true,
+                                          children: <Widget>[
+                                            Center(
+                                                child: const Text('Success!')),
+                                            SizedBox(height: 20, width: 50),
+                                            Center(
+                                                child: (Text(
+                                                    'Selamat! Anda telah berdonasi sebesar IDR ' +
+                                                        nominal.toString() +
+                                                        ' dan ' +
+                                                        jumlahPohon
+                                                            .round()
+                                                            .toString() +
+                                                        'x ' +
+                                                        namaPohon))),
+                                            TextButton(
+                                                onPressed: () {
+                                                  if (_formKey.currentState!
+                                                      .validate()) {
+                                                    submit(
+                                                        context,
+                                                        nominal,
+                                                        namaPohon,
+                                                        jumlahPohon,
+                                                        pesan,);
+                                                    Navigator.pop(context);
+                                                  }
+                                                },
+                                                child: Text(
+                                                  'Kembali',
+                                                )),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
+                            },
+                          ),
+                        ])))));
   }
 }
