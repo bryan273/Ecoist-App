@@ -41,10 +41,6 @@ class _MyDonatePageState extends State<MyDonatePage> {
               'jumlahPohon': jumlahPohonController,
               'pesan': pesanController,
             }));
-    print(nominal);
-    print(namaPohon);
-    print(jumlahPohon);
-    print(pesan);
   }
 
   @override
@@ -71,7 +67,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                hintText: "Minimal Rp 1000,-",
+                                hintText: "Minimum IDR 1000,-",
                                 labelText: "Nominal",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0),
@@ -93,11 +89,11 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               validator: (String? value) {
                                 // cek kosong
                                 if (value == null || value.isEmpty) {
-                                  return 'Isi nominal';
+                                  return 'Please enter nominal';
                                 }
                                 // check isnumeric
                                 if (!isNumeric(value)) {
-                                  return 'Nominal harus berupa angka';
+                                  return 'Nominal must be a number';
                                 }
                                 return null;
                               },
@@ -107,8 +103,8 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                hintText: "Contoh: Kaktus",
-                                labelText: "Nama Pohon",
+                                hintText: "Example: Cactus",
+                                labelText: "Tree Name",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
@@ -125,7 +121,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               },
                               validator: (String? value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Isi nama pohon';
+                                  return 'Please enter tree name';
                                 }
                                 return null;
                               },
@@ -134,7 +130,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                           ListTile(
                             title: Row(
                               children: [
-                                Text('Jumlah Pohon: ${jumlahPohon.round()}'),
+                                Text('Number of Trees: ${jumlahPohon.round()}'),
                               ],
                             ),
                             subtitle: Slider(
@@ -157,8 +153,8 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               maxLines: 4,
                               keyboardType: TextInputType.multiline,
                               decoration: InputDecoration(
-                                hintText: "Pesan untuk kami",
-                                labelText: "Pesan",
+                                hintText: "Message for Us",
+                                labelText: "Message for Us",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
@@ -175,7 +171,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               },
                               validator: (String? value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Isi pesan';
+                                  return 'Please enter message';
                                 }
                                 return null;
                               },
@@ -183,7 +179,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                           ),
                           TextButton(
                             child: const Text(
-                              "Donasi",
+                              "Donate",
                               style: TextStyle(color: Colors.white),
                             ),
                             style: ButtonStyle(
@@ -212,9 +208,9 @@ class _MyDonatePageState extends State<MyDonatePage> {
                                             SizedBox(height: 20, width: 50),
                                             Center(
                                                 child: (Text(
-                                                    'Selamat! Anda telah berdonasi sebesar IDR ' +
+                                                    'Congratulations! You have donated IDR ' +
                                                         nominal.toString() +
-                                                        ' dan ' +
+                                                        ' and ' +
                                                         jumlahPohon
                                                             .round()
                                                             .toString() +
@@ -225,7 +221,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                                                   Navigator.pop(context);
                                                 },
                                                 child: Text(
-                                                  'Kembali',
+                                                  'Back',
                                                 )),
                                           ],
                                         ),
