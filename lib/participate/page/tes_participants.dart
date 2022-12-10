@@ -15,7 +15,7 @@ class _TesParticipantsState extends State<TesParticipants> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Watch List'),
+        title: const Text('Daftar Partisipan'),
       ),
       drawer: DrawerUser(),
       body: FutureBuilder(

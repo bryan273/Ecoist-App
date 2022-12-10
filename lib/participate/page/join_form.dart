@@ -1,3 +1,4 @@
+import 'package:ecoist/participate/page/tes_participants.dart';
 import 'package:flutter/material.dart';
 import 'package:ecoist/main.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
@@ -239,6 +240,22 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   },
                   child: const Text(
                     "Info Partisipan",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TesParticipants()),
+                    );
+                    clearText();
+                  },
+                  child: const Text(
+                    "Daftar Partisipan",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),

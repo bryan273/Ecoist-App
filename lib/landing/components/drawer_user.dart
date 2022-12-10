@@ -58,7 +58,7 @@ class DrawerUser extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Form Partisipan'),
+            title: const Text('Join Campaign'),
             onTap: () {
               // Route menu ke halaman utama
               logout(request);
@@ -66,19 +66,6 @@ class DrawerUser extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const ParticipatePage(
-                    )),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Daftar Partisipan'),
-            onTap: () {
-              // Route menu ke halaman utama
-              logout(request);
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const TesParticipants(
                     )),
               );
             },
