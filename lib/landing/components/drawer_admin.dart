@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import 'package:ecoist/donate/page/donate.dart';
+=======
+import 'package:ecoist/admin_ecoist/page/add_notes.dart';
+>>>>>>> 2264960afe148467129f78f5a0bef51dfc4cc0d3
 import 'package:ecoist/landing/api/landing_api.dart';
 import 'package:ecoist/main.dart';
 import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
 import 'package:ecoist/admin_ecoist/page/top_user_page.dart';
+import 'package:ecoist/admin_ecoist/component/form_add_notes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -16,20 +21,6 @@ class DrawerAdmin extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          // Menambahkan clickable menu
-          ListTile(
-            title: const Text('Home'),
-            onTap: () {
-              // Route menu ke halaman utama
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const MyHomePage(
-                          title: "Admin",
-                        )),
-              );
-            },
-          ),
           ListTile(
             title: const Text('Dashboard'),
             onTap: () {
@@ -49,6 +40,17 @@ class DrawerAdmin extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const TopUserPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Add Notes'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AddNotesPage()),
               );
             },
           ),

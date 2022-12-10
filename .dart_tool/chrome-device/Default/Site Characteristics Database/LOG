@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 2022/12/10-14:34:49.633 554c Reusing MANIFEST C:\Users\mazay\AppData\Local\Temp\flutter_tools.a7697f27\flutter_tools_chrome_device.f113a316\Default\Site Characteristics Database/MANIFEST-000001
 2022/12/10-14:34:49.682 554c Recovering log #6
 2022/12/10-14:34:49.683 554c Reusing old log C:\Users\mazay\AppData\Local\Temp\flutter_tools.a7697f27\flutter_tools_chrome_device.f113a316\Default\Site Characteristics Database/000006.log 
 2022/12/10-14:34:49.683 554c Delete type=0 #3
+=======
+2022/12/10-17:09:31.418 14cc Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\Site Characteristics Database/MANIFEST-000001
+2022/12/10-17:09:31.419 14cc Recovering log #6
+2022/12/10-17:09:31.419 14cc Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\Site Characteristics Database/000006.log 
+2022/12/10-17:09:31.419 14cc Delete type=0 #3
+>>>>>>> 2264960afe148467129f78f5a0bef51dfc4cc0d3

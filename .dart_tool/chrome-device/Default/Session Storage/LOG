@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 2022/12/10-14:34:50.201 4190 Reusing MANIFEST C:\Users\mazay\AppData\Local\Temp\flutter_tools.a7697f27\flutter_tools_chrome_device.f113a316\Default\Session Storage/MANIFEST-000001
 2022/12/10-14:34:50.239 4190 Recovering log #3
 2022/12/10-14:34:50.240 4190 Reusing old log C:\Users\mazay\AppData\Local\Temp\flutter_tools.a7697f27\flutter_tools_chrome_device.f113a316\Default\Session Storage/000003.log 
+=======
+2022/12/10-17:09:31.514 b490 Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\Session Storage/MANIFEST-000001
+2022/12/10-17:09:31.521 b490 Recovering log #3
+2022/12/10-17:09:31.522 b490 Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\Session Storage/000003.log 
+>>>>>>> 2264960afe148467129f78f5a0bef51dfc4cc0d3
