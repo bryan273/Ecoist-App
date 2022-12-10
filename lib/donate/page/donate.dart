@@ -27,14 +27,13 @@ class _MyDonatePageState extends State<MyDonatePage> {
     return double.tryParse(value) != null;
   }
 
-  Future<void> submit(BuildContext context, double nominal, String namaPohon,
-      double jumlahPohon, String pesan) async {
+  Future<void> submit(BuildContext context, double nominal, String namaPohon, double jumlahPohon, String pesan) async {
     double nominalController = nominal;
     String namaPohonController = namaPohon;
     double jumlahPohonController = jumlahPohon;
     String pesanController = pesan;
     final response =
-        await http.post(Uri.parse("https://ecoist.up.railway.app/json/"),
+        await http.post(Uri.parse("https://ecoist.up.railway.app/donate/json/"),
             headers: <String, String>{'Content-Type': 'application/json'},
             body: jsonEncode(<String, dynamic>{
               'nominal': nominalController,
@@ -42,8 +41,10 @@ class _MyDonatePageState extends State<MyDonatePage> {
               'jumlahPohon': jumlahPohonController,
               'pesan': pesanController,
             }));
-    // ignore: avoid_print
-    print(response.body);
+    print(nominal);
+    print(namaPohon);
+    print(jumlahPohon);
+    print(pesan);
   }
 
   @override
@@ -191,6 +192,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
+                                submit(context, nominal, namaPohon, jumlahPohon, pesan,);
                                 showDialog(
                                   context: context,
                                   builder: (context) {
@@ -220,16 +222,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                                                         namaPohon))),
                                             TextButton(
                                                 onPressed: () {
-                                                  if (_formKey.currentState!
-                                                      .validate()) {
-                                                    submit(
-                                                        context,
-                                                        nominal,
-                                                        namaPohon,
-                                                        jumlahPohon,
-                                                        pesan,);
-                                                    Navigator.pop(context);
-                                                  }
+                                                  Navigator.pop(context);
                                                 },
                                                 child: Text(
                                                   'Kembali',
