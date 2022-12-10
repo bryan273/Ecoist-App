@@ -1,7 +1,8 @@
 import 'dart:html';
 
-import 'package:ecoist/main.dart';
-import 'package:ecoist/landing/components/drawer_unlogin.dart';
+import 'package:ecoist/landing/components/drawer_user.dart';
+// import 'package:ecoist/main.dart';
+// import 'package:ecoist/landing/components/drawer_unlogin.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,6 +33,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
         appBar: AppBar(
           title: Text('Donate'),
         ),
+        drawer: const DrawerUser(),
         body: Form(
             key: _formKey,
             child: SingleChildScrollView(
@@ -143,12 +145,12 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               ),
                               onChanged: (String? value) {
                                 setState(() {
-                                  namaPohon = value!;
+                                  pesan = value!;
                                 });
                               },
                               onSaved: (String? value) {
                                 setState(() {
-                                  namaPohon = value!;
+                                  pesan = value!;
                                 });
                               },
                               validator: (String? value) {
@@ -184,11 +186,13 @@ class _MyDonatePageState extends State<MyDonatePage> {
                                 shrinkWrap: true,
                                 children: <Widget>[
                                   Center(child: const Text('Success!')),
-                                  SizedBox(height: 20),
-                                  Text('Selamat! Anda telah berdonasi sebesar:'),
-                                  Text('Nominal: ' + nominal.toString()),
-                                  Text('Nama Pohon: ' + namaPohon),
-                                  Text('Jumlah Pohon: ' + jumlahPohon.round().toString()),
+                                  SizedBox(height: 20, width: 50),
+                                  Center(
+                                    child:(
+                                      Text('Selamat! Anda telah berdonasi sebesar IDR ' + nominal.toString() + ' dan ' + jumlahPohon.round().toString() + 'x ' + namaPohon)
+
+                                    )
+                                  ),
                                   TextButton(
                                       onPressed: () {
                                         Navigator.pop(context);
@@ -205,11 +209,11 @@ class _MyDonatePageState extends State<MyDonatePage> {
                     }
                   },
                 ),
-                        ]
-                      )
-                    )
-                  )
-                )
-              );
+              ]
+            )
+          )
+        )
+      )
+    );
   }
 }

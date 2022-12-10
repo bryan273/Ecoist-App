@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import 'package:ecoist/donate/page/donate.dart';
+=======
 import 'package:ecoist/admin_ecoist/page/add_notes.dart';
+>>>>>>> 2264960afe148467129f78f5a0bef51dfc4cc0d3
 import 'package:ecoist/landing/api/landing_api.dart';
 import 'package:ecoist/main.dart';
 import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
