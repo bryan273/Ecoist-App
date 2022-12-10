@@ -1,8 +1,13 @@
+import 'package:ecoist/donate/page/donate.dart';
 import 'package:ecoist/landing/api/landing_api.dart';
+import 'package:ecoist/participate/page/join_form.dart';
 import 'package:ecoist/main.dart';
+import 'package:ecoist/participate/page/participants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+
+import '../../participate/page/tes_participants.dart';
 
 class DrawerUser extends StatelessWidget {
   const DrawerUser({Key? key}) : super(key: key);
@@ -52,6 +57,19 @@ class DrawerUser extends StatelessWidget {
                     builder: (context) => const MyHomePage(
                           title: "-",
                         )),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Join Campaign'),
+            onTap: () {
+              // Route menu ke halaman utama
+              logout(request);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ParticipatePage(
+                    )),
               );
             },
           ),

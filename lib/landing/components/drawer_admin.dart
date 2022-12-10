@@ -1,3 +1,4 @@
+
 import 'package:ecoist/admin_ecoist/page/add_notes.dart';
 import 'package:ecoist/landing/api/landing_api.dart';
 import 'package:ecoist/main.dart';
@@ -17,7 +18,21 @@ class DrawerAdmin extends StatelessWidget {
       child: Column(
         children: [
           const ListTile(
-            title: Text(''),
+            title: Text('')
+          ),
+          // Menambahkan clickable menu
+          ListTile(
+            title: const Text('Home'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MyHomePage(
+                      title: "Admin",
+                    )),
+              );
+            },
           ),
           ListTile(
             title: const Text('Dashboard'),
@@ -42,17 +57,6 @@ class DrawerAdmin extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Add Notes'),
-            onTap: () {
-              // Route menu ke halaman utama
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const AddNotesPage()),
-              );
-            },
-          ),
-          ListTile(
             title: const Text('Logout'),
             onTap: () {
               // Route menu ke halaman utama
@@ -61,8 +65,8 @@ class DrawerAdmin extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const MyHomePage(
-                          title: "-",
-                        )),
+                      title: "-",
+                    )),
               );
             },
           ),
