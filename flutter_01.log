@@ -1,0 +1,76 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+FileSystemException: FileSystemException: writeFrom failed, path = 'C:\Users\myra\AppData\Local\Temp\flutter_tools.6f23b73c\flutter_tools.55b97b7a\web_entrypoint.dart' (OS Error: There is not enough space on the disk.
+, errno = 112)
+
+```
+#0      _RandomAccessFile.writeFromSync (dart:io/file_impl.dart:873:7)
+#1      _File.writeAsBytesSync (dart:io/file_impl.dart:606:14)
+#2      _File.writeAsStringSync (dart:io/file_impl.dart:628:5)
+#3      ForwardingFile.writeAsStringSync (package:file/src/forwarding/forwarding_file.dart:147:16)
+#4      ResidentWebRunner._generateEntrypoint (package:flutter_tools/src/isolated/resident_web_runner.dart:460:14)
+<asynchronous suspension>
+#5      ResidentWebRunner._updateDevFS (package:flutter_tools/src/isolated/resident_web_runner.dart:489:16)
+<asynchronous suspension>
+#6      ResidentWebRunner.run.<anonymous closure> (package:flutter_tools/src/isolated/resident_web_runner.dart:283:41)
+<asynchronous suspension>
+#7      asyncGuard.<anonymous closure> (package:flutter_tools/src/base/async_guard.dart:111:24)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 3.3.9, on Microsoft Windows [Version 10.0.19044.2251], locale id-ID)
+    • Flutter version 3.3.9 on channel stable at C:\Users\myra\OneDrive\Dokumen\SDA\flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision b8f7f1f986 (3 weeks ago), 2022-11-23 06:43:51 +0900
+    • Engine revision 8f2221fbef
+    • Dart version 2.18.5
+    • DevTools version 2.15.0
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 33.0.0)
+    • Android SDK at C:\Users\myra\AppData\Local\Android\sdk
+    • Platform android-33, build-tools 33.0.0
+    • Java binary at: C:\Program Files\Android\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 11.0.13+0-b1751.21-8125866)
+    • All Android licenses accepted.
+
+[✓] Chrome - develop for the web
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[✗] Visual Studio - develop for Windows
+    ✗ Visual Studio not installed; this is necessary for Windows development.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components
+
+[✓] Android Studio (version 2021.3)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 11.0.13+0-b1751.21-8125866)
+
+[✓] VS Code (version 1.73.0)
+    • VS Code at C:\Users\myra\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension can be installed from:
+      🔨 https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+
+[✓] Connected device (3 available)
+    • Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.19044.2251]
+    • Chrome (web)      • chrome  • web-javascript • Google Chrome 108.0.5359.99
+    • Edge (web)        • edge    • web-javascript • Microsoft Edge 108.0.1462.42
+
+[✓] HTTP Host Availability
+    • All required HTTP hosts are available
+
+! Doctor found issues in 1 category.
+```

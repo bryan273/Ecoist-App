@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/login": (BuildContext context) => const LoginPage(),
           "/admin_ecoist": (BuildContext context) =>
-              const AdminEcoistPage(),
+          const AdminEcoistPage(),
           '/home': (BuildContext context) => const MyHomePage(title: "-"),
         },
         initialRoute: "/home",
@@ -85,22 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: const Text("ECOIST"),
       ),
-      drawer: 
-<<<<<<< HEAD
-          const DrawerUser(),
-          // (widget.title == "-") || (widget.title == "ECOIST")
-          // ? const DrawerUnlogin()
-          // : widget.title == "Admin"
-          //     ? const DrawerAdmin()
-          //     : const DrawerUser(),
-=======
-          // const DrawerAdmin(),
-          (widget.title == "-") || (widget.title == "ECOIST")
-          ? const DrawerUnlogin()
-          : widget.title == "Admin"
-              ? const DrawerAdmin()
-              : const DrawerUser(),
->>>>>>> 2264960afe148467129f78f5a0bef51dfc4cc0d3
+      drawer:
+      const DrawerUser(),
+      // (widget.title == "-") || (widget.title == "ECOIST")
+      // ? const DrawerUnlogin()
+      // : widget.title == "Admin"
+      //     ? const DrawerAdmin()
+      //     : const DrawerUser(),
 
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
