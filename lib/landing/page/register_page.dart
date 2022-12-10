@@ -3,7 +3,7 @@ import 'package:ecoist/landing/components/register_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+  const RegisterPage({Key? key, }) : super(key: key);
 
   @override
   State<RegisterPage> createState() => _RegisterState();

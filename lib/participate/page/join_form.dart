@@ -5,7 +5,7 @@ import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/participate/page/participants.dart';
 
 class ParticipatePage extends StatefulWidget {
-  const ParticipatePage({super.key});
+  const ParticipatePage({Key? key, }) : super(key: key);
 
   @override
   State<ParticipatePage> createState() => _ParticipateFormPageState();

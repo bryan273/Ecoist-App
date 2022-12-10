@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 
 class InputParticipants extends StatefulWidget {
-  const InputParticipants({super.key});
+  const InputParticipants({Key? key, }) : super(key: key);
 
   @override
   State<InputParticipants> createState() => _InputParticipantsState();

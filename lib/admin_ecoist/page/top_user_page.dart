@@ -3,7 +3,7 @@ import 'package:ecoist/admin_ecoist/component/top_user_container.dart';
 import 'package:flutter/material.dart';
 
 class TopUserPage extends StatefulWidget {
-  const TopUserPage({super.key});
+  const TopUserPage({Key? key, }) : super(key: key);
 
   @override
   State<TopUserPage> createState() => _TopUserState();

@@ -7,7 +7,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 var port = '127.0.0.1:8000';
 
 class RegisterForm extends StatefulWidget {
-  const RegisterForm({super.key, required this.formKey});
+  const RegisterForm({Key? key, required this.formKey}) : super(key: key);
 
   // ignore: prefer_typing_uninitialized_variables
   final formKey;
@@ -154,8 +154,8 @@ class _FormRegister extends State<RegisterForm> {
               ),
               onPressed: () async {
                 final response = await request.post(
-                  // 'https://ecoist.up.railway.app/flutter_register',
-                    'http://$port/flutter_register/', 
+                  'https://ecoist.up.railway.app/flutter_register/',
+                    // 'http://$port/flutter_register/', 
                 {
                   "username": username,
                   "password1": password,
