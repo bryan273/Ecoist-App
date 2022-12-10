@@ -233,7 +233,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const DataBudgetPage()),
+                        MaterialPageRoute(builder: (context) => const InputParticipants()),
                       );
                       clearText();
                   },

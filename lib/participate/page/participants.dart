@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 
-class DataBudgetPage extends StatefulWidget {
-  const DataBudgetPage({super.key});
+class InputParticipants extends StatefulWidget {
+  const InputParticipants({super.key});
 
   @override
-  State<DataBudgetPage> createState() => _DataBudgetPageState();
+  State<InputParticipants> createState() => _InputParticipantsState();
 }
 
-class _DataBudgetPageState extends State<DataBudgetPage> {
+class _InputParticipantsState extends State<InputParticipants> {
 
   // Daftar-daftar data yang disimpan
   static List<String> daftarNama = [];
@@ -93,9 +93,9 @@ class _DataBudgetPageState extends State<DataBudgetPage> {
 }
 
 void inputDataBudget(String nama, String email, int nomor, String help, String reason){
-  _DataBudgetPageState.daftarNama.add(nama);
-  _DataBudgetPageState.daftarEmail.add(email);
-  _DataBudgetPageState.daftarNomor.add(nomor);
-  _DataBudgetPageState.daftarHelp.add(help);
-  _DataBudgetPageState.daftarReason.add(reason);
+  _InputParticipantsState.daftarNama.add(nama);
+  _InputParticipantsState.daftarEmail.add(email);
+  _InputParticipantsState.daftarNomor.add(nomor);
+  _InputParticipantsState.daftarHelp.add(help);
+  _InputParticipantsState.daftarReason.add(reason);
 }
