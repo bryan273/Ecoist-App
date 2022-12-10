@@ -24,3 +24,10 @@ Future<List<Participants>> fetchParticipants() async {
   }
   return listPartisipan;
 }
+
+void join(request, nama, email, nomor, help, reason) async {
+  await request.post(
+      'http://127.0.0.1:8000/participate/flutter_campaign/',
+      {"nama_pendaftar": nama, "email_pendaftar": email, "phone_number": nomor,
+      "what_can_you_help_with": help, "reason_to_participate": reason});
+}

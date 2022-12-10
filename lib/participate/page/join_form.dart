@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:ecoist/main.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/participate/page/participants.dart';
+import 'package:provider/provider.dart';
+import 'package:ecoist/participate/fetch_participants.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class ParticipatePage extends StatefulWidget {
   const ParticipatePage({Key? key, }) : super(key: key);
@@ -34,6 +37,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Form Partisipan'),
@@ -112,7 +116,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: "Phone Number",
-                      icon: const Icon(Icons.monetization_on_outlined),
+                      icon: const Icon(Icons.edit_note),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
@@ -151,7 +155,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                     maxLines: 4,
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
-                      labelText: "Reason",
+                      labelText: "Why do you want to join us?",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
@@ -179,7 +183,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                 ListTile(
                   leading: const Icon(Icons.class_),
                   title: const Text(
-                    'Pilih Jenis ',
+                    'What can you help with?',
                   ),
                   trailing: DropdownButton(
                     value: _whatCanYouHelpWith,
@@ -207,14 +211,13 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   ),
                 ),
 
-                // Tombol "Simpan"
                 TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      inputDataBudget(_namaPendaftar, _emailPendaftar, _phoneNumber, _whatCanYouHelpWith, _reasonToParticipate);
+                      join(request, _namaPendaftar, _emailPendaftar, _phoneNumber.toString(), _whatCanYouHelpWith, _reasonToParticipate);
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const ParticipatePage()),
