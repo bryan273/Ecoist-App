@@ -1,4 +1,5 @@
 import 'package:ecoist/landing/components/drawer_unlogin.dart';
+import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
 import 'package:ecoist/main.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -128,7 +129,8 @@ class _LoginPageState extends State<LoginPage> {
                     "username": username,
                     "password": password,
                   });
-
+                  
+                  print(response);
                   print(response['status']==false);
 
                   if (response['status']==true) {
@@ -137,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                         context,
                         MaterialPageRoute(
                           builder: (BuildContext context) => response["isAdmin"]
-                              ? const MyHomePage(title: "Admin")
+                              ? const AdminEcoistPage()
                               : const MyHomePage(title: "User"),
                         ));
                   } else {

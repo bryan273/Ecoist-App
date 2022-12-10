@@ -1,2 +1,15 @@
-2022/12/08-13:17:15.355 d03c Creating DB C:\Users\bryan\AppData\Local\Temp\flutter_tools.7f4b737f\flutter_tools_chrome_device.104c57cf\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb since it was missing.
-2022/12/08-13:17:15.365 d03c Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.7f4b737f\flutter_tools_chrome_device.104c57cf\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/12/10-09:55:59.737 2ac4 Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.275b2aeb\flutter_tools_chrome_device.98ad92a2\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/12/10-09:55:59.737 2ac4 Recovering log #4
+2022/12/10-09:55:59.738 2ac4 Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.275b2aeb\flutter_tools_chrome_device.98ad92a2\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000004.log 
+2022/12/10-09:56:05.674 d8c Level-0 table #8: started
+2022/12/10-09:56:05.676 d8c Level-0 table #8: 15102 bytes OK
+2022/12/10-09:56:05.678 d8c Delete type=0 #4
+2022/12/10-09:56:05.678 d8c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2022/12/10-09:56:05.679 d8c Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x03\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x00\xea`\x9fOxB\x00\x03\x00\x00\x00\x00\x00\x00\x10@' @ 394 : 1
+2022/12/10-09:56:05.679 d8c Compacting 1@1 + 1@2 files
+2022/12/10-09:56:05.681 d8c Generated table #9@1: 40 keys, 1070 bytes
+2022/12/10-09:56:05.681 d8c Compacted 1@1 + 1@2 files => 1070 bytes
+2022/12/10-09:56:05.683 d8c compacted to: files[ 0 0 1 0 0 0 0 ]
+2022/12/10-09:56:05.683 d8c Delete type=2 #5
+2022/12/10-09:56:05.683 d8c Delete type=2 #8
+2022/12/10-09:56:05.683 d8c Manual compaction at level-1 from '\x00\x03\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x00\xea`\x9fOxB\x00\x03\x00\x00\x00\x00\x00\x00\x10@' @ 394 : 1 .. (end); will stop at (end)
