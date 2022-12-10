@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import 'package:ecoist/admin_ecoist/page/add_notes.dart';
+>>>>>>> 2e1186a14465840c5491e58f75ffc14f6aca1f25
 import 'package:ecoist/landing/api/landing_api.dart';
 import 'package:ecoist/main.dart';
 import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
