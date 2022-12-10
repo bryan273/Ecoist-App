@@ -3,27 +3,25 @@ import 'package:ecoist/admin_ecoist/model/bar1.dart';
 import 'package:ecoist/admin_ecoist/model/bar2.dart';
 import 'package:ecoist/admin_ecoist/model/dist1.dart';
 import 'package:ecoist/admin_ecoist/model/dist2.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
 // import 'package:ecoist/admin_ecoist/model/show_log.dart';
 
 // var port = '10.0.2.2';
-var port = '127.0.0.1:8000';
+// var port = '127.0.0.1:8000';
 
 Future<List<TopUser>> fetchTopUser(request) async {
-  var url = 'http://$port/flutter_top_user/';
+  var url = 'https://ecoist.up.railway.app/flutter_top_user'; 
+  // var url = 'http://$port/flutter_top_user/';
   var response = await request.get(url);
   var data = response['table_top_5'];
-  print('response ini');
-  print(data);
+  // print('response ini');
+  // print(data);
   
   List<TopUser> dataTopUser = [];
 
   for (var d in data) {
-    print('masuk');
+    // print('masuk');
     if (d != null) {
-      print('json');
+      // print('json');
       print(d);
       dataTopUser.add(TopUser.fromJson(d));
     }
@@ -32,7 +30,8 @@ Future<List<TopUser>> fetchTopUser(request) async {
 }
 
 Future<List<Bar1>> fetchTopDonation(request) async {
-  var url = 'http://$port/flutter_top_donations/';
+  var url = 'https://ecoist.up.railway.app/flutter_top_donations'; 
+  // 'http://$port/flutter_top_donations/';
   var response = await request.get(url);
   var data = response['don_top_5'];
   
@@ -48,7 +47,8 @@ Future<List<Bar1>> fetchTopDonation(request) async {
 }
 
 Future<List<Bar2>> fetchTopCampaigns(request) async {
-  var url = 'http://$port/flutter_top_campaigns/';
+  // var url = 'http://$port/flutter_top_campaigns/';
+  var url = 'https://ecoist.up.railway.app/flutter_top_campaigns';
   var response = await request.get(url);
   var data = response['par_top_5'];
   
@@ -64,7 +64,8 @@ Future<List<Bar2>> fetchTopCampaigns(request) async {
 }
 
 Future<List<Dist1>> fetchDistDonations(request) async {
-  var url = 'http://$port/flutter_dist_donations/';
+  var url = 'https://ecoist.up.railway.app/flutter_dist_donations'; 
+  // var url = 'http://$port/flutter_dist_donations/';
   var response = await request.get(url);
   var data = response['don_dist'];
   
@@ -80,7 +81,8 @@ Future<List<Dist1>> fetchDistDonations(request) async {
 }
 
 Future<List<Dist2>> fetchDistCampaigns(request) async {
-  var url = 'http://$port/flutter_dist_campaigns/';
+  var url = 'https://ecoist.up.railway.app/flutter_dist_campaigns'; 
+  // var url = 'http://$port/flutter_dist_campaigns/';
   var response = await request.get(url);
   var data = response['par_dist'];
   
@@ -94,26 +96,24 @@ Future<List<Dist2>> fetchDistCampaigns(request) async {
   }
   return dataDist2;
 }
-// addJanji(request, keluhan, noHP, dokter) async {
-//   var response = await request.post('http://10.0.2.2:8000/admin_ft/add/',
-      // {"keluhan": keluhan, "noHP": noHP, "dokter": dokter}
-      // );
-  // return response['status'];
-// }
 
-// Future<List<ShowLog>> fetchLog(request) async {
-//   var url = 'http://10.0.2.2:8000/admin_ft/show_log/';
-//   var response = await request.get(url);
+Future<Map<String, String>> fetchText(request) async {
+  // var url = 'http://$port/flutter_text/';
+  var url = 'https://ecoist.up.railway.app/flutter_text'; 
+  var data = await request.get(url);
+  // print(data['username']);
+  Map<String, String> map1 = {'username': data['username'],
+                          'nominal': data['nominal'],
+                          'jumlahPohon': data['jumlahPohon'],
+                          'kampanye': data['kampanye'],
+                          'donasi': data['donasi'],};
+  print(map1['username']);
+  return map1;
+}
 
-//   var data = response;
-
-//   // melakukan konversi data json menjadi object ToDo
-//   List<ShowLog> log = [];
-
-//   for (var d in data) {
-//     if (d != null) {
-//       log.add(ShowLog.fromJson(d));
-//     }
-//   }
-//   return log;
-// }
+void addNotes(request, nama, note) async {
+  await request.post(
+      'https://ecoist.up.railway.app/flutter_notes',
+      // 'http://$port/flutter_notes/',
+      {"nama": nama, "note": note});
+}
