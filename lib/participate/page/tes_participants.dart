@@ -2,7 +2,6 @@ import 'package:ecoist/participate/fetch_participants.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:flutter/material.dart';
 
-
 class TesParticipants extends StatefulWidget {
   const TesParticipants({Key? key}) : super(key: key);
 
@@ -20,7 +19,7 @@ class _TesParticipantsState extends State<TesParticipants> {
       ),
       drawer: DrawerUser(),
       body: FutureBuilder(
-        future: fetchMyWatchList(),
+        future: fetchParticipants(),
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());

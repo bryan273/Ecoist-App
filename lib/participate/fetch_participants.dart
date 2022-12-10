@@ -3,12 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ecoist/participate/model/participation.dart';
 
-import 'package:ecoist/landing/components/drawer_user.dart';
 
-
-Future<List<Participants>> fetchMyWatchList() async {
-  var url =
-  Uri.parse('http://127.0.0.1:8000/participate/json/');
+Future<List<Participants>> fetchParticipants() async {
+  var url = Uri.parse('http://127.0.0.1:8000/participate/json/');
   var response = await http.get(
     url,
     headers: {
@@ -18,12 +15,12 @@ Future<List<Participants>> fetchMyWatchList() async {
   );
 
   var data = jsonDecode(utf8.decode(response.bodyBytes));
-  List<Participants> listNamaPartisipan = [];
+  List<Participants> listPartisipan = [];
 
   for (var d in data) {
     if (d != null) {
-      listNamaPartisipan.add(Participants.fromJson(d));
+      listPartisipan.add(Participants.fromJson(d));
     }
   }
-  return listNamaPartisipan;
+  return listPartisipan;
 }
