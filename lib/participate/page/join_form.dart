@@ -16,15 +16,15 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
   String _namaPendaftar = "";
   String _emailPendaftar = "";
   int _phoneNumber = 0;
-  String _help = 'Delivering flyers';
-  String _reason = "";
+  String _whatCanYouHelpWith = 'Delivering flyers';
+  String _reasonToParticipate = "";
 
   void clearText() {
     _namaPendaftar = "";
     _emailPendaftar = "";
      _phoneNumber = 0;
-     _help = 'Delivering flyers';
-     _reason = "";
+     _whatCanYouHelpWith = 'Delivering flyers';
+     _reasonToParticipate = "";
   }
 
   bool isNumeric(String value){
@@ -157,12 +157,12 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                     ),
                     onChanged: (String? value) {
                       setState(() {
-                        _reason = value!;
+                        _reasonToParticipate = value!;
                       });
                     },
                     onSaved: (String? value) {
                       setState(() {
-                        _reason = value!;
+                        _reasonToParticipate = value!;
                       });
                     },
                     validator: (String? value) {
@@ -181,7 +181,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                     'Pilih Jenis ',
                   ),
                   trailing: DropdownButton(
-                    value: _help,
+                    value: _whatCanYouHelpWith,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: const <DropdownMenuItem<String>>[
                       DropdownMenuItem<String>(
@@ -200,7 +200,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
 
                     onChanged: (String? newValue) {
                       setState(() {
-                        _help = newValue!;
+                        _whatCanYouHelpWith = newValue!;
                       });
                     },
                   ),
@@ -213,7 +213,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      inputDataBudget(_namaPendaftar, _emailPendaftar, _phoneNumber, _help, _reason);
+                      inputDataBudget(_namaPendaftar, _emailPendaftar, _phoneNumber, _whatCanYouHelpWith, _reasonToParticipate);
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const ParticipatePage()),
