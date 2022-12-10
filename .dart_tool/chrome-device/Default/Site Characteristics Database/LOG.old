@@ -1,7 +1,17 @@
-2022/12/10-22:11:36.166 c454 Reusing MANIFEST C:\Users\mazay\AppData\Local\Temp\flutter_tools.ade61852\flutter_tools_chrome_device.d9d4be09\Default\Site Characteristics Database/MANIFEST-000001
-2022/12/10-22:11:36.180 c454 Recovering log #3
-2022/12/10-22:11:36.180 c454 Level-0 table #3: started
-2022/12/10-22:11:36.184 c454 Level-0 table #3: 223 bytes OK
-2022/12/10-22:11:36.210 c454 Recovering log #6
-2022/12/10-22:11:36.211 c454 Reusing old log C:\Users\mazay\AppData\Local\Temp\flutter_tools.ade61852\flutter_tools_chrome_device.d9d4be09\Default\Site Characteristics Database/000006.log 
-2022/12/10-22:11:36.213 c454 Delete type=0 #3
+<<<<<<< HEAD
+<<<<<<< HEAD
+2022/12/10-19:53:24.640 e74 Reusing MANIFEST C:\Users\myra\AppData\Local\Temp\flutter_tools.983b5afd\flutter_tools_chrome_device.d37a2f54\Default\Site Characteristics Database/MANIFEST-000001
+2022/12/10-19:53:24.641 e74 Recovering log #3
+2022/12/10-19:53:24.641 e74 Reusing old log C:\Users\myra\AppData\Local\Temp\flutter_tools.983b5afd\flutter_tools_chrome_device.d37a2f54\Default\Site Characteristics Database/000003.log 
+=======
+2022/12/10-14:34:49.633 554c Reusing MANIFEST C:\Users\mazay\AppData\Local\Temp\flutter_tools.a7697f27\flutter_tools_chrome_device.f113a316\Default\Site Characteristics Database/MANIFEST-000001
+2022/12/10-14:34:49.682 554c Recovering log #6
+2022/12/10-14:34:49.683 554c Reusing old log C:\Users\mazay\AppData\Local\Temp\flutter_tools.a7697f27\flutter_tools_chrome_device.f113a316\Default\Site Characteristics Database/000006.log 
+2022/12/10-14:34:49.683 554c Delete type=0 #3
+>>>>>>> c04e2ee95ffc6d56450e08034ce6476fa6d621d8
+=======
+2022/12/10-17:09:31.418 14cc Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\Site Characteristics Database/MANIFEST-000001
+2022/12/10-17:09:31.419 14cc Recovering log #6
+2022/12/10-17:09:31.419 14cc Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\Site Characteristics Database/000006.log 
+2022/12/10-17:09:31.419 14cc Delete type=0 #3
+>>>>>>> 2264960afe148467129f78f5a0bef51dfc4cc0d3
