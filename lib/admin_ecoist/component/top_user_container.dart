@@ -50,40 +50,40 @@ class _TopUserState extends State<TopUserContainer> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [Center(child: DefaultTextStyle(
-                                    style: const TextStyle(color: Color.fromARGB(255, 206, 40, 46), fontSize: 15),
+                                    style: const TextStyle(color: Color.fromARGB(255, 206, 40, 46), fontSize: 15,fontWeight: FontWeight.bold),
                                     child: Text("${snapshot.data?[index].index}. ${snapshot.data?[index].username}"),),),]
                         ),
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 20,
                       ),
                       // Donation Amount	Total Tree	Total Campaign	Total Donation	Notes
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [DefaultTextStyle(
-                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13),
+                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13,fontWeight: FontWeight.bold),
                                     child: Text("Donation Amount: ${snapshot.data?[index].nominal}",),), 
                                   DefaultTextStyle(
-                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13),
+                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13,fontWeight: FontWeight.bold),
                                     child: Text("Total Tree: ${snapshot.data?[index].jumlahPohon}",),),], 
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [DefaultTextStyle(
-                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13),
+                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13,fontWeight: FontWeight.bold),
                                     child: Text("Total Campaign: ${snapshot.data?[index].kampanye}",),), 
                                   DefaultTextStyle(
-                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13),
+                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13,fontWeight: FontWeight.bold),
                                     child: Text("Total Donation: ${snapshot.data?[index].donasi}",),),], 
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
                         Center(child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [DefaultTextStyle(
-                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13),
+                                    style: const TextStyle(color: Color(0xff59A5D8), fontSize: 13,fontWeight: FontWeight.bold),
                                     child: Text("Notes: ${snapshot.data?[index].noted}",),),] 
                         ),
                       ),

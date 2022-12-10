@@ -154,7 +154,9 @@ class _FormRegister extends State<RegisterForm> {
               ),
               onPressed: () async {
                 final response = await request.post(
-                    'http://$port/flutter_register/', {
+                  // 'https://ecoist.up.railway.app/flutter_register',
+                    'http://$port/flutter_register/', 
+                {
                   "username": username,
                   "password1": password,
                   "password2": password1

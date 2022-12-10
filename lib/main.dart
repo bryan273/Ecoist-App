@@ -86,12 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("ECOIST"),
       ),
       drawer: 
-          const DrawerAdmin(),
-          // (widget.title == "-") || (widget.title == "ECOIST")
-          // ? const DrawerUnlogin()
-          // : widget.title == "Admin"
-          //     ? const DrawerAdmin()
-          //     : const DrawerUser(),
+          // const DrawerAdmin(),
+          (widget.title == "-") || (widget.title == "ECOIST")
+          ? const DrawerUnlogin()
+          : widget.title == "Admin"
+              ? const DrawerAdmin()
+              : const DrawerUser(),
 
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
