@@ -1,5 +1,7 @@
+import 'package:ecoist/donate/page/donate.dart';
 import 'package:ecoist/landing/page/login_page.dart';
 import 'package:ecoist/landing/page/register_page.dart';
+import 'package:ecoist/donate/page/donate.dart';
 import 'package:ecoist/main.dart';
 
 import 'package:flutter/material.dart';
