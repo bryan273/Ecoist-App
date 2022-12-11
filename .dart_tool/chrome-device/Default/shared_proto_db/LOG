@@ -1,3 +1,15 @@
+<<<<<<< HEAD
 2022/12/11-19:12:59.447 67d0 Reusing MANIFEST C:\Users\myra\AppData\Local\Temp\flutter_tools.28495f0\flutter_tools_chrome_device.6fb42a87\Default\shared_proto_db/MANIFEST-000001
 2022/12/11-19:12:59.448 67d0 Recovering log #3
 2022/12/11-19:12:59.449 67d0 Reusing old log C:\Users\myra\AppData\Local\Temp\flutter_tools.28495f0\flutter_tools_chrome_device.6fb42a87\Default\shared_proto_db/000003.log 
+=======
+<<<<<<< HEAD
+2022/12/10-19:53:24.828 4070 Reusing MANIFEST C:\Users\myra\AppData\Local\Temp\flutter_tools.983b5afd\flutter_tools_chrome_device.d37a2f54\Default\shared_proto_db/MANIFEST-000001
+2022/12/10-19:53:24.829 4070 Recovering log #3
+2022/12/10-19:53:24.830 4070 Reusing old log C:\Users\myra\AppData\Local\Temp\flutter_tools.983b5afd\flutter_tools_chrome_device.d37a2f54\Default\shared_proto_db/000003.log 
+=======
+2022/12/10-17:09:31.529 68f8 Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\shared_proto_db/MANIFEST-000001
+2022/12/10-17:09:31.529 68f8 Recovering log #3
+2022/12/10-17:09:31.530 68f8 Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\shared_proto_db/000003.log 
+>>>>>>> 2264960afe148467129f78f5a0bef51dfc4cc0d3
+>>>>>>> adf465b7243d1f0ee7445109872bd4fb0f0520b4
