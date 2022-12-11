@@ -5,7 +5,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 class DonateList extends StatefulWidget {
-  const DonateList({super.key});
+  const DonateList({Key? key, }) : super(key: key);
 
   @override
   State<DonateList> createState() => _DonateListState();
