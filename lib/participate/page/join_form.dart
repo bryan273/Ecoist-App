@@ -229,6 +229,13 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                         context,
                         MaterialPageRoute(builder: (context) => const ParticipatePage()),
                       );
+                      showDialog(
+                          context: context,
+                          builder: (_) => const AlertDialog(
+                            title: Text('Thank you for participating! :)'),
+                            content: Text("We'll send the further details to your e-mail."),
+                          )
+                      );
                       clearText();
                     }
                   },
