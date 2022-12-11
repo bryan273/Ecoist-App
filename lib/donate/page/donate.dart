@@ -34,7 +34,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
   }
 
   void donate(request, nominal, namaPohon, jumlahPohon, pesan) async {
-    await request.post('http://127.0.0.1:8000/donate/flutter_donation/', {
+    await request.post('https://ecoist.up.railway.app/donate/flutter_donation/', {
       "nominal": nominal,
       "namaPohon": namaPohon,
       "jumlahPohon": jumlahPohon,
@@ -225,10 +225,10 @@ class _MyDonatePageState extends State<MyDonatePage> {
                                                         namaPohon))),
                                             TextButton(
                                                 onPressed: () {
-                                                  // Navigator.push(context,MaterialPageRoute(builder: (context) => const DonateList()),);
+                                                  Navigator.push(context,MaterialPageRoute(builder: (context) => const DonateList()),);
                                                 },
                                                 child: Text(
-                                                  'Back',
+                                                  'View Donate List',
                                                 )),
                                           ],
                                         ),

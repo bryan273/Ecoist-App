@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 Future<List<Donation>> fetchDonation() async {
-    var url = Uri.parse('http://127.0.0.1:8000/donate/json/');
+    var url = Uri.parse('https://ecoist.up.railway.app/donate/json/');
     var response = await http.get(
       url,
       headers: {
