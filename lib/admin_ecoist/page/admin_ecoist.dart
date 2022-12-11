@@ -11,11 +11,8 @@ import 'package:ecoist/admin_ecoist/model/dist1.dart';
 import 'package:ecoist/admin_ecoist/model/dist2.dart';
 
 
-// var port = '10.0.2.2';
-// var port = '127.0.0.1:8000';
-
 class AdminEcoistPage extends StatefulWidget {
-  const AdminEcoistPage({super.key});
+  const AdminEcoistPage({Key? key, }) : super(key: key);
 
   @override
   State<AdminEcoistPage> createState() => _AdminEcoistState();
@@ -216,7 +213,7 @@ class _AdminEcoistState extends State<AdminEcoistPage> {
                               dataSource: dist1Data,
                               showNormalDistributionCurve: true,
                               curveColor: const Color.fromRGBO(192, 108, 132, 1),
-                              binInterval: 20000,
+                              binInterval: 15000,
                               yValueMapper: (Dist1 data, _) => data.nominal,
                               dataLabelSettings:DataLabelSettings(isVisible : true))
                               ],
@@ -255,7 +252,7 @@ class _AdminEcoistState extends State<AdminEcoistPage> {
                           dataSource: dist2Data,
                           showNormalDistributionCurve: true,
                           curveColor: const Color.fromRGBO(192, 108, 132, 1),
-                          binInterval: 1,
+                          binInterval: 2,
                           yValueMapper: (Dist2 data, _) => data.kampanye,
                           dataLabelSettings:DataLabelSettings(isVisible : true)),],
                         title: ChartTitle(text: 'Campaign Distribution'),

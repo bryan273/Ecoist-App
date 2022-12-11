@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ecoist/admin_ecoist/component/form_add_notes.dart';
 
 class AddNotesPage extends StatefulWidget {
-  const AddNotesPage({super.key});
+  const AddNotesPage({Key? key, }) : super(key: key);
 
   @override
   State<AddNotesPage> createState() => _AddNotesState();

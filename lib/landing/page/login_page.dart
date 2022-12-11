@@ -9,7 +9,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 var port = '127.0.0.1:8000';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key, }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _LoginPageState();
@@ -125,8 +125,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: () async {
                   final response = await request.post(
-                      // 'https://ecoist.up.railway.app/flutter_login',
-                      'http://$port/flutter_login/', 
+                      'https://ecoist.up.railway.app/flutter_login/',
+                      // 'http://$port/flutter_login/', 
                   {
                     "username": username,
                     "password": password,

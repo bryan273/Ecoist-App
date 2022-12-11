@@ -1,10 +1,14 @@
+import 'package:ecoist/participate/page/tes_participants.dart';
 import 'package:flutter/material.dart';
 import 'package:ecoist/main.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/participate/page/participants.dart';
+import 'package:provider/provider.dart';
+import 'package:ecoist/participate/fetch_participants.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class ParticipatePage extends StatefulWidget {
-  const ParticipatePage({super.key});
+  const ParticipatePage({Key? key, }) : super(key: key);
 
   @override
   State<ParticipatePage> createState() => _ParticipateFormPageState();
@@ -16,15 +20,15 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
   String _namaPendaftar = "";
   String _emailPendaftar = "";
   int _phoneNumber = 0;
-  String _help = 'Delivering flyers';
-  String _reason = "";
+  String _whatCanYouHelpWith = 'Delivering flyers';
+  String _reasonToParticipate = "";
 
   void clearText() {
     _namaPendaftar = "";
     _emailPendaftar = "";
      _phoneNumber = 0;
-     _help = 'Delivering flyers';
-     _reason = "";
+     _whatCanYouHelpWith = 'Delivering flyers';
+     _reasonToParticipate = "";
   }
 
   bool isNumeric(String value){
@@ -33,6 +37,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Form Partisipan'),
@@ -111,7 +116,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: "Phone Number",
-                      icon: const Icon(Icons.monetization_on_outlined),
+                      icon: const Icon(Icons.edit_note),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
@@ -150,19 +155,19 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                     maxLines: 4,
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
-                      labelText: "Reason",
+                      labelText: "Why do you want to join us?",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
                     onChanged: (String? value) {
                       setState(() {
-                        _reason = value!;
+                        _reasonToParticipate = value!;
                       });
                     },
                     onSaved: (String? value) {
                       setState(() {
-                        _reason = value!;
+                        _reasonToParticipate = value!;
                       });
                     },
                     validator: (String? value) {
@@ -178,10 +183,10 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                 ListTile(
                   leading: const Icon(Icons.class_),
                   title: const Text(
-                    'Pilih Jenis ',
+                    'What can you help with?',
                   ),
                   trailing: DropdownButton(
-                    value: _help,
+                    value: _whatCanYouHelpWith,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: const <DropdownMenuItem<String>>[
                       DropdownMenuItem<String>(
@@ -200,20 +205,19 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
 
                     onChanged: (String? newValue) {
                       setState(() {
-                        _help = newValue!;
+                        _whatCanYouHelpWith = newValue!;
                       });
                     },
                   ),
                 ),
 
-                // Tombol "Simpan"
                 TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      inputDataBudget(_namaPendaftar, _emailPendaftar, _phoneNumber, _help, _reason);
+                      join(request, _namaPendaftar, _emailPendaftar, _phoneNumber.toString(), _whatCanYouHelpWith, _reasonToParticipate);
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const ParticipatePage()),
@@ -233,12 +237,28 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const DataBudgetPage()),
+                        MaterialPageRoute(builder: (context) => const InputParticipants()),
                       );
                       clearText();
                   },
                   child: const Text(
                     "Info Partisipan",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TesParticipants()),
+                    );
+                    clearText();
+                  },
+                  child: const Text(
+                    "Daftar Partisipan",
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),

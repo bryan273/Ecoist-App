@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import 'dart:html';
 import 'dart:js_util';
+=======
+// import 'dart:html';
+>>>>>>> 47ee85576d91732bfa7c8967f99f02efcf417afd
 
 import 'package:ecoist/donate/page/donate-list.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
@@ -15,7 +19,7 @@ void main() {
 }
 
 class MyDonatePage extends StatefulWidget {
-  const MyDonatePage({super.key});
+  const MyDonatePage({Key? key, }) : super(key: key);
 
   @override
   State<MyDonatePage> createState() => _MyDonatePageState();
