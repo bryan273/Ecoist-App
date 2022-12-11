@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class FormAddNotes extends StatefulWidget {
-  const FormAddNotes({super.key, this.formKey});
+  const FormAddNotes({Key? key, this.formKey}) : super(key: key);
 
   final formKey;
 

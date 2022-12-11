@@ -1,15 +1,22 @@
 import 'dart:html';
+import 'dart:js_util';
+// import 'dart:html';
 
-import 'package:ecoist/main.dart';
-import 'package:ecoist/landing/components/drawer_unlogin.dart';
+import 'package:ecoist/donate/page/donate-list.dart';
+import 'package:ecoist/landing/components/drawer_user.dart';
+import 'package:ecoist/donate/model/donation.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 void main() {
   runApp(const MyDonatePage());
 }
 
 class MyDonatePage extends StatefulWidget {
-  const MyDonatePage({super.key});
+  const MyDonatePage({Key? key, }) : super(key: key);
 
   @override
   State<MyDonatePage> createState() => _MyDonatePageState();
@@ -17,21 +24,33 @@ class MyDonatePage extends StatefulWidget {
 
 class _MyDonatePageState extends State<MyDonatePage> {
   final _formKey = GlobalKey<FormState>();
-  double nominal = 1000;
+  int nominal = 1000;
   String namaPohon = "";
-  double jumlahPohon = 1;
+  int jumlahPohon = 1;
   String pesan = "";
 
-  bool isNumeric(String value){
-    return double.tryParse(value) != null;
+  bool isNumeric(String value) {
+    return int.tryParse(value) != null;
+  }
+
+  void donate(request, nominal, namaPohon, jumlahPohon, pesan) async {
+    await request.post('http://127.0.0.1:8000/donate/flutter_donation/', {
+      "nominal": nominal,
+      "namaPohon": namaPohon,
+      "jumlahPohon": jumlahPohon,
+      "pesan": pesan
+    });
+    print("masuk kesini");
   }
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
         appBar: AppBar(
           title: Text('Donate'),
         ),
+        drawer: const DrawerUser(),
         body: Form(
             key: _formKey,
             child: SingleChildScrollView(
@@ -49,7 +68,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                hintText: "Minimal Rp 1000,-",
+                                hintText: "Minimum IDR 1000,-",
                                 labelText: "Nominal",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0),
@@ -58,24 +77,24 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               keyboardType: TextInputType.number,
                               onChanged: (String? value) {
                                 setState(() {
-                                  nominal = double.parse(value!);
+                                  nominal = int.parse(value!);
                                 });
                               },
                               // Menambahkan behavior saat data disimpan
                               onSaved: (String? value) {
                                 setState(() {
-                                  nominal = value! as double;
+                                  nominal = value! as int;
                                 });
                               },
                               // Validator
                               validator: (String? value) {
                                 // cek kosong
                                 if (value == null || value.isEmpty) {
-                                  return 'Isi nominal';
+                                  return 'Please enter nominal';
                                 }
                                 // check isnumeric
                                 if (!isNumeric(value)) {
-                                  return 'Nominal harus berupa angka';
+                                  return 'Nominal must be a number';
                                 }
                                 return null;
                               },
@@ -85,8 +104,8 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
                               decoration: InputDecoration(
-                                hintText: "Contoh: Kaktus",
-                                labelText: "Nama Pohon",
+                                hintText: "Example: Cactus",
+                                labelText: "Tree Name",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
@@ -103,7 +122,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               },
                               validator: (String? value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Isi nama pohon';
+                                  return 'Please enter tree name';
                                 }
                                 return null;
                               },
@@ -112,18 +131,18 @@ class _MyDonatePageState extends State<MyDonatePage> {
                           ListTile(
                             title: Row(
                               children: [
-                                Text('Jumlah Pohon: ${jumlahPohon.round()}'),
+                                Text('Number of Trees: ${jumlahPohon.round()}'),
                               ],
                             ),
                             subtitle: Slider(
-                              value: jumlahPohon,
+                              value: jumlahPohon.toDouble(),
                               min: 1,
                               max: 100,
                               divisions: 100,
                               label: jumlahPohon.round().toString(),
                               onChanged: (double value) {
                                 setState(() {
-                                  jumlahPohon = value;
+                                  jumlahPohon = value as int;
                                 });
                               },
                             ),
@@ -135,81 +154,91 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               maxLines: 4,
                               keyboardType: TextInputType.multiline,
                               decoration: InputDecoration(
-                                hintText: "Pesan untuk kami",
-                                labelText: "Pesan",
+                                hintText: "Message for Us",
+                                labelText: "Message for Us",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
                               ),
                               onChanged: (String? value) {
                                 setState(() {
-                                  namaPohon = value!;
+                                  pesan = value!;
                                 });
                               },
                               onSaved: (String? value) {
                                 setState(() {
-                                  namaPohon = value!;
+                                  pesan = value!;
                                 });
                               },
                               validator: (String? value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Isi pesan';
+                                  return 'Please enter message';
                                 }
                                 return null;
                               },
                             ),
                           ),
                           TextButton(
-                  child: const Text(
-                    "Donasi",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                            child: const Text(
+                              "Donate",
+                              style: TextStyle(color: Colors.white),
                             ),
-                            elevation: 15,
-                            child: Container(
-                              child: ListView(
-                                padding:
-                                    const EdgeInsets.only(top: 20, bottom: 20),
-                                shrinkWrap: true,
-                                children: <Widget>[
-                                  Center(child: const Text('Success!')),
-                                  SizedBox(height: 20),
-                                  Text('Selamat! Anda telah berdonasi sebesar:'),
-                                  Text('Nominal: ' + nominal.toString()),
-                                  Text('Nama Pohon: ' + namaPohon),
-                                  Text('Jumlah Pohon: ' + jumlahPohon.round().toString()),
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        'Kembali',
-                                      )),
-                                ],
-                              ),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.blue),
                             ),
-                          );
-                        },
-                      );
-                    }
-                  },
-                ),
-                        ]
-                      )
-                    )
-                  )
-                )
-              );
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                donate(
+                                  request,
+                                  nominal.toString(),
+                                  namaPohon,
+                                  jumlahPohon.toString(),
+                                  pesan,
+                                );
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      elevation: 15,
+                                      child: Container(
+                                        child: ListView(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 20),
+                                          shrinkWrap: true,
+                                          children: <Widget>[
+                                            Center(
+                                                child: const Text('Success!')),
+                                            SizedBox(height: 20, width: 50),
+                                            Center(
+                                                child: (Text(
+                                                    'Congratulations! You have donated IDR ' +
+                                                        nominal.toString() +
+                                                        ' and ' +
+                                                        jumlahPohon
+                                                            .round()
+                                                            .toString() +
+                                                        'x ' +
+                                                        namaPohon))),
+                                            TextButton(
+                                                onPressed: () {
+                                                  // Navigator.push(context,MaterialPageRoute(builder: (context) => const DonateList()),);
+                                                },
+                                                child: Text(
+                                                  'Back',
+                                                )),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
+                            },
+                          ),
+                        ])))));
   }
 }
