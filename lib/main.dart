@@ -95,24 +95,42 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 30,
                 ),
                 const Text(
-                  'Welcome to Ecoist, where we can create a better world together.',
+                  'Welcome to Ecoist,\n where we can create a better world together.',
+                  style:  TextStyle(
+                                fontSize: 20.0,
+                                ),
+                  
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                FormAddQuestions(formKey: _formKey),
                 const SizedBox(
                   height: 30,
                 ),
                 FutureBuilder(
-                    future: fetchCount(request),
-                    builder: (context, AsyncSnapshot snapshot) {
-                      if (snapshot.data == null) {
-                        return const Center(child: CircularProgressIndicator());
-                      } else {
-                        return Text('${snapshot.data}');
-                      }
-                    }),
+                  future: fetchCount(request),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.data == null) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else {
+                      return Text(
+                        '${snapshot.data}',
+                        style: const TextStyle(
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                      );
+                    }
+                  }
+                ),
+                const Text(
+                  "campaigns have been started in ecoist",
+                    style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                FormAddQuestions(formKey: _formKey, user: widget.title),
                 const SizedBox(
                   height: 30,
                 ),
@@ -157,12 +175,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Text(
                                   "Question from ${snapshot.data[index].username}",
                                   style: const TextStyle(
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12.0,
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                Text("${snapshot.data[index].question}"),
+                                Text("${snapshot.data[index].question}",
+                                  style: const TextStyle(
+                                      fontSize: 15.0,
+                                    ),
+                                ),
                               ]),
                             ),
                           ),
