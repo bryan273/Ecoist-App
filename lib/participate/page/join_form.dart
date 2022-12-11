@@ -4,7 +4,7 @@ import 'package:ecoist/main.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/participate/page/participants.dart';
 import 'package:provider/provider.dart';
-import 'package:ecoist/participate/fetch_participants.dart';
+import 'package:ecoist/participate/api/fetch_participants.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class ParticipatePage extends StatefulWidget {

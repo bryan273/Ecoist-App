@@ -1,4 +1,4 @@
-import 'package:ecoist/participate/fetch_participants.dart';
+import 'package:ecoist/participate/api/fetch_participants.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:flutter/material.dart';
 

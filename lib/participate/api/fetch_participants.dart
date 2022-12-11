@@ -5,7 +5,7 @@ import 'package:ecoist/participate/model/participation.dart';
 
 
 Future<List<Participants>> fetchParticipants() async {
-  var url = Uri.parse('http://127.0.0.1:8000/participate/json/');
+  var url = Uri.parse('https://ecoist.up.railway.app/participate/json/');
   var response = await http.get(
     url,
     headers: {
@@ -27,7 +27,7 @@ Future<List<Participants>> fetchParticipants() async {
 
 void join(request, nama, email, nomor, help, reason) async {
   await request.post(
-      'http://127.0.0.1:8000/participate/flutter_campaign/',
+      'https://ecoist.up.railway.app/participate/flutter_campaign/',
       {"nama_pendaftar": nama, "email_pendaftar": email, "phone_number": nomor,
       "what_can_you_help_with": help, "reason_to_participate": reason});
 }
