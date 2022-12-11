@@ -1,3 +1,4 @@
+import 'package:ecoist/donate/page/donate-list.dart';
 import 'package:ecoist/donate/page/donate.dart';
 import 'package:ecoist/landing/api/landing_api.dart';
 import 'package:ecoist/participate/page/join_form.dart';
@@ -30,17 +31,28 @@ class DrawerUser extends StatelessWidget {
               );
             },
           ),
-          // ListTile(
-          //   title: const Text('Dashboard'),
-          //   onTap: () {
-          //     // Route menu ke halaman utama
-          //     Navigator.pushReplacement(
-          //       context,
-          //       MaterialPageRoute(
-          //           builder: (context) => const UserPage()),
-          //     );
-          //   },
-          // ),
+          ListTile(
+            title: const Text('Donate'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MyDonatePage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Donate List'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const DonateList()),
+              );
+            },
+          ),
           ListTile(
             title: const Text('Logout'),
             onTap: () {

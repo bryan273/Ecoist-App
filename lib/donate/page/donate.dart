@@ -1,9 +1,14 @@
 import 'dart:html';
+import 'dart:js_util';
 
+import 'package:ecoist/donate/page/donate-list.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
+import 'package:ecoist/donate/model/donation.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 void main() {
   runApp(const MyDonatePage());
@@ -18,33 +23,28 @@ class MyDonatePage extends StatefulWidget {
 
 class _MyDonatePageState extends State<MyDonatePage> {
   final _formKey = GlobalKey<FormState>();
-  double nominal = 1000;
+  int nominal = 1000;
   String namaPohon = "";
-  double jumlahPohon = 1;
+  int jumlahPohon = 1;
   String pesan = "";
 
   bool isNumeric(String value) {
-    return double.tryParse(value) != null;
+    return int.tryParse(value) != null;
   }
 
-  Future<void> submit(BuildContext context, double nominal, String namaPohon, double jumlahPohon, String pesan) async {
-    double nominalController = nominal;
-    String namaPohonController = namaPohon;
-    double jumlahPohonController = jumlahPohon;
-    String pesanController = pesan;
-    final response =
-        await http.post(Uri.parse("https://ecoist.up.railway.app/donate/json/"),
-            headers: <String, String>{'Content-Type': 'application/json'},
-            body: jsonEncode(<String, dynamic>{
-              'nominal': nominalController,
-              'namaPohon': namaPohonController,
-              'jumlahPohon': jumlahPohonController,
-              'pesan': pesanController,
-            }));
+  void donate(request, nominal, namaPohon, jumlahPohon, pesan) async {
+    await request.post('http://127.0.0.1:8000/donate/flutter_donation/', {
+      "nominal": nominal,
+      "namaPohon": namaPohon,
+      "jumlahPohon": jumlahPohon,
+      "pesan": pesan
+    });
+    print("masuk kesini");
   }
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
         appBar: AppBar(
           title: Text('Donate'),
@@ -76,13 +76,13 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               keyboardType: TextInputType.number,
                               onChanged: (String? value) {
                                 setState(() {
-                                  nominal = double.parse(value!);
+                                  nominal = int.parse(value!);
                                 });
                               },
                               // Menambahkan behavior saat data disimpan
                               onSaved: (String? value) {
                                 setState(() {
-                                  nominal = value! as double;
+                                  nominal = value! as int;
                                 });
                               },
                               // Validator
@@ -134,14 +134,14 @@ class _MyDonatePageState extends State<MyDonatePage> {
                               ],
                             ),
                             subtitle: Slider(
-                              value: jumlahPohon,
+                              value: jumlahPohon.toDouble(),
                               min: 1,
                               max: 100,
                               divisions: 100,
                               label: jumlahPohon.round().toString(),
                               onChanged: (double value) {
                                 setState(() {
-                                  jumlahPohon = value;
+                                  jumlahPohon = value as int;
                                 });
                               },
                             ),
@@ -188,7 +188,13 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                submit(context, nominal, namaPohon, jumlahPohon, pesan,);
+                                donate(
+                                  request,
+                                  nominal.toString(),
+                                  namaPohon,
+                                  jumlahPohon.toString(),
+                                  pesan,
+                                );
                                 showDialog(
                                   context: context,
                                   builder: (context) {
@@ -218,7 +224,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
                                                         namaPohon))),
                                             TextButton(
                                                 onPressed: () {
-                                                  Navigator.pop(context);
+                                                  // Navigator.push(context,MaterialPageRoute(builder: (context) => const DonateList()),);
                                                 },
                                                 child: Text(
                                                   'Back',
