@@ -2,6 +2,8 @@
 import 'package:ecoist/landing/components/drawer_admin.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/landing/components/drawer_unlogin.dart';
+import 'package:ecoist/main/api/home_api.dart';
+import 'package:ecoist/main/components/form_add_questions.dart';
 import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -30,8 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           "/login": (BuildContext context) => const LoginPage(),
-          "/admin_ecoist": (BuildContext context) =>
-          const AdminEcoistPage(),
+          "/admin_ecoist": (BuildContext context) => const AdminEcoistPage(),
           '/home': (BuildContext context) => const MyHomePage(title: "-"),
         },
         initialRoute: "/home",
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key,  this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -53,68 +54,127 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+  final _formKey = GlobalKey<FormState>();
+  int count = 70;
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+    // fetchCount(request).then((int result) {
+    //   setState(() {
+    //     count = result;
+    //   });
+    // });
     WidgetsFlutterBinding.ensureInitialized();
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ECOIST"),
-      ),
-      drawer:
-      //const DrawerUser(),
-        (widget.title == "-") || (widget.title == "ECOIST")
-        ? const DrawerUnlogin()
-        : widget.title == "Admin"
-          ? const DrawerAdmin()
-          : const DrawerUser(),
-
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              'assets/images/forest.jpg',
-              height: 300,
-              fit: BoxFit.fitWidth,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              'Welcome to Ecoist, where we can create a better world together.',
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-          ],
+        appBar: AppBar(
+          title: const Text("ECOIST"),
         ),
-      ),
-       // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        drawer:
+            //const DrawerUser(),
+            (widget.title == "-") || (widget.title == "ECOIST")
+                ? const DrawerUnlogin()
+                : widget.title == "Admin"
+                    ? const DrawerAdmin()
+                    : const DrawerUser(),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/forest.jpg',
+                  height: 300,
+                  fit: BoxFit.fitWidth,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text(
+                  'Welcome to Ecoist, where we can create a better world together.',
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                FormAddQuestions(formKey: _formKey),
+                const SizedBox(
+                  height: 30,
+                ),
+                FutureBuilder(
+                    future: fetchCount(request),
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.data == null) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else {
+                        return Text('${snapshot.data}');
+                      }
+                    }),
+                const SizedBox(
+                  height: 30,
+                ),
+                FutureBuilder(
+                  future: fetchRecentQuestions(request),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.data == null) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else {
+                      if (snapshot.data.length == 0) {
+                        return Column(
+                          children: const [
+                            Text(
+                              "0 question have been asked",
+                              style: TextStyle(
+                                  color: Color(0xff59A5D8), fontSize: 20),
+                            ),
+                            SizedBox(height: 8),
+                          ],
+                        );
+                      } else {
+                        // ini harus diubah jadi return listview builder
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: snapshot.data?.length,
+                          itemBuilder: (_, index) => Container(
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12),
+                            padding: const EdgeInsets.all(20.0),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15.0),
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Colors.black, blurRadius: 2.0)
+                                ]),
+                            child: Center(
+                              child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Question from ${snapshot.data[index].username}",
+                                  style: const TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text("${snapshot.data[index].question}"),
+                              ]),
+                            ),
+                          ),
+                        );
+                      }
+                    }
+                  },
+                )
+              ],
+            ),
+          ),
+          // This trailing comma makes auto-formatting nicer for build methods.
+        ));
   }
 }
