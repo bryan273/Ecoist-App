@@ -211,9 +211,16 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   ),
                 ),
 
-                TextButton(
+                SizedBox(height: 50),
+
+              SizedBox(
+                width: 100, // <-- Your width
+                height: 50, // <-- Your height
+                child:TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.all(10)),
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
@@ -230,23 +237,12 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
-                  onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const InputParticipants()),
-                      );
-                      clearText();
-                  },
-                  child: const Text(
-                    "Info Partisipan",
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
                 ),
-                TextButton(
+
+                SizedBox(height: 50),
+
+
+                ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
