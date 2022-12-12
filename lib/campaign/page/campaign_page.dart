@@ -1,3 +1,4 @@
+import 'package:ecoist/landing/components/drawer_campaign.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class CampaignPage extends StatefulWidget {
 class _CampaignPageState extends State<CampaignPage> {
 
   Future<List<Campaign>> fetchCampaign() async {
-    var url = Uri.parse('http://127.0.0.1:8000/campaign/json');
+    var url = Uri.parse('https://ecoist.up.railway.app/campaign/json');
     var response = await http.get(
       url,
       headers: {
@@ -45,36 +46,7 @@ class _CampaignPageState extends State<CampaignPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      drawer: Drawer (
-        child: Column (
-          children: [
-            ListTile(
-              title: const Text("Home"),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context, 
-                  MaterialPageRoute(builder: (context) => const MyHomePage(
-                      title: 'Home'
-                    )
-                  )
-                );
-              },
-            ),
-            ListTile(
-              title: const Text("Create Campaign"),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context, 
-                  MaterialPageRoute(builder: (context) => const CreateCampaignPage(
-                      title: 'Create Campaign'
-                    )
-                  )
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: DrawerCampaign(),
     body: FutureBuilder(
         future: fetchCampaign(),
         builder: (context, AsyncSnapshot snapshot) {

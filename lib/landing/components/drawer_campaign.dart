@@ -8,11 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:ecoist/campaign/page/campaign_page.dart';
+import 'package:ecoist/campaign/page/create_campaign_form.dart';
 
 import '../../participate/page/tes_participants.dart';
+import 'package:ecoist/landing/components/drawer_campaign.dart';
 
-class DrawerUser extends StatelessWidget {
-  const DrawerUser({Key? key}) : super(key: key);
+class DrawerCampaign extends StatelessWidget {
+  const DrawerCampaign({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +40,31 @@ class DrawerUser extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Campaign'),
+            title: const Text('Create Campaign'),
             onTap: () {
               // Route menu ke halaman utama
+              logout(request);
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const CampaignPage()),
+                    builder: (context) => const CreateCampaignPage(
+                      title: 'Create Campaign'
+                  )
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Join Campaign'),
+            onTap: () {
+              // Route menu ke halaman utama
+              logout(request);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ParticipatePage(
+                  )
+                ),
               );
             },
           ),
@@ -52,21 +72,13 @@ class DrawerUser extends StatelessWidget {
             title: const Text('Donate'),
             onTap: () {
               // Route menu ke halaman utama
+              logout(request);
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const MyDonatePage()),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Donate List'),
-            onTap: () {
-              // Route menu ke halaman utama
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const DonateList()),
+                    builder: (context) => const MyDonatePage(
+                  )
+                ),
               );
             },
           ),
