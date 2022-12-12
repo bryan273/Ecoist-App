@@ -229,13 +229,7 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                         context,
                         MaterialPageRoute(builder: (context) => const ParticipatePage()),
                       );
-                      showDialog(
-                          context: context,
-                          builder: (_) => const AlertDialog(
-                            title: Text('Thank you for participating! :)'),
-                            content: Text("We'll send the further details to your e-mail."),
-                          )
-                      );
+                      _showDialog(context);
                       clearText();
                     }
                   },
@@ -249,22 +243,6 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                 SizedBox(height: 50),
 
 
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const TesParticipants()),
-                    );
-                    clearText();
-                  },
-                  child: const Text(
-                    "Daftar Partisipan",
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                ),
               ],
             ),
           ),
@@ -272,4 +250,35 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
       ),
     );
   }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("Thank you for participating!"),
+          content: new Text("We'll send you the further details to your e-mail."),
+          actions: <Widget>[
+            new ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blue),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TesParticipants()),
+                );
+                clearText();
+              },
+              child: const Text(
+                "Daftar Partisipan",
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
 }
