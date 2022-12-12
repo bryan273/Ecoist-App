@@ -40,7 +40,6 @@ class _MyDonatePageState extends State<MyDonatePage> {
       "jumlahPohon": jumlahPohon,
       "pesan": pesan
     });
-    print("masuk kesini");
   }
 
   @override
@@ -136,9 +135,9 @@ class _MyDonatePageState extends State<MyDonatePage> {
                             ),
                             subtitle: Slider(
                               value: jumlahPohon.toDouble(),
-                              min: 1,
-                              max: 100,
-                              divisions: 100,
+                              min: 1.0,
+                              max: 100.0,
+                              divisions: 1,
                               label: jumlahPohon.round().toString(),
                               onChanged: (double value) {
                                 setState(() {
@@ -229,6 +228,13 @@ class _MyDonatePageState extends State<MyDonatePage> {
                                                 },
                                                 child: Text(
                                                   'View Donate List',
+                                                )),
+                                            TextButton(
+                                                onPressed: () {
+                                                  Navigator.push(context,MaterialPageRoute(builder: (context) => const MyDonatePage()),);
+                                                },
+                                                child: Text(
+                                                  'Donate Again',
                                                 )),
                                           ],
                                         ),
