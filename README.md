@@ -58,9 +58,13 @@ Situs Ecoist adalah situs yang bertujuan untuk menyebarkan kesadaran kepada masy
 
 8. Donate list - Maza 
 
-    Page ini akan menampilkan donasi yang telah dilakukan. AKan mengimplemntasikan method get.
+    Page ini akan menampilkan donasi yang telah dilakukan. Akan mengimplemntasikan method get.
 
-9. Admin Features - Bryan
+9. Participant list - Adish 
+
+    Page ini akan menampilkan participant yang telah dilakukan. Akan mengimplemntasikan method get.
+
+10. Admin Features - Bryan
 
     Merupakan fitur / web yang khusus bisa diakses oleh admin. Fitur yang khusus ini dapat digunakan untuk melihat data tentang user. Misalnya, melihat dashboard pageview dan click, total donasi yang ada, dan total campaign yang telah diikuti. Akan mengimplementasikan method get untuk mendapatkan data dari database serta method post untuk menambahkan note.
 
