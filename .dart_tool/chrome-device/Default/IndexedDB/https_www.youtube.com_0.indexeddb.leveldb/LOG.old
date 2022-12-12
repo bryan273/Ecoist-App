@@ -1,13 +1,4 @@
-2022/12/10-17:36:10.278 a4d8 Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/12/10-17:36:10.278 a4d8 Recovering log #7
-2022/12/10-17:36:10.279 a4d8 Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000007.log 
-2022/12/10-17:36:10.505 c100 Level-0 table #12: started
-2022/12/10-17:36:10.508 c100 Level-0 table #12: 732 bytes OK
-2022/12/10-17:36:10.511 c100 Delete type=0 #7
-2022/12/10-17:36:10.512 913c Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)
-2022/12/10-17:36:10.512 913c Manual compaction at level-1 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at '\x00\x03\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x00\xea`\x9fOxB\x00\x03\x00\x00\x00\x00\x00\x00\x10@' @ 446 : 0
-2022/12/10-17:36:10.513 913c Compacting 1@1 + 1@2 files
-2022/12/10-17:36:10.517 913c Generated table #13@1: 23 keys, 775 bytes
-2022/12/10-17:36:10.517 913c Compacted 1@1 + 1@2 files => 775 bytes
-2022/12/10-17:36:10.521 913c compacted to: files[ 0 0 1 0 0 0 0 ]
-2022/12/10-17:36:10.522 913c Manual compaction at level-1 from '\x00\x03\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x00\xea`\x9fOxB\x00\x03\x00\x00\x00\x00\x00\x00\x10@' @ 446 : 0 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)
+2022/12/10-17:18:17.789 a2f8 Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/12/10-17:18:17.789 a2f8 Recovering log #7
+2022/12/10-17:18:17.789 a2f8 Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.ab9182ca\flutter_tools_chrome_device.8d9e0003\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000007.log 
+2022/12/10-17:18:17.790 a2f8 Delete type=0 #3
