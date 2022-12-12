@@ -66,7 +66,7 @@ Situs Ecoist adalah situs yang bertujuan untuk menyebarkan kesadaran kepada masy
 
 10. Admin Features - Bryan
 
-    Merupakan fitur / web yang khusus bisa diakses oleh admin. Fitur yang khusus ini dapat digunakan untuk melihat data tentang user. Misalnya, melihat dashboard pageview dan click, total donasi yang ada, dan total campaign yang telah diikuti. Akan mengimplementasikan method get untuk mendapatkan data dari database serta method post untuk menambahkan note.
+    Merupakan fitur / web yang khusus bisa diakses oleh admin. Fitur yang khusus ini dapat digunakan untuk melihat data tentang user. Misalnya, melihat dashboard top user, distribusi donasi dan kampanye, total donasi yang ada, dan total campaign yang telah diikuti. Fitur ini diimplementasikan dengan method get untuk mendapatkan data dari database serta method post untuk menambahkan note.
 
 
 
