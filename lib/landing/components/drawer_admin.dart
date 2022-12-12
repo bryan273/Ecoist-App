@@ -20,20 +20,6 @@ class DrawerAdmin extends StatelessWidget {
           const ListTile(
             title: Text('')
           ),
-          // Menambahkan clickable menu
-          ListTile(
-            title: const Text('Home'),
-            onTap: () {
-              // Route menu ke halaman utama
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const MyHomePage(
-                      title: "Admin",
-                    )),
-              );
-            },
-          ),
           ListTile(
             title: const Text('Dashboard'),
             onTap: () {
@@ -53,6 +39,20 @@ class DrawerAdmin extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const TopUserPage()),
+              );
+            },
+          ),
+          // Menambahkan clickable menu
+          ListTile(
+            title: const Text('Add Notes'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const AddNotesPage(
+                    )
+                  ),
               );
             },
           ),

@@ -1,1 +1,12 @@
+<<<<<<< HEAD
 2022/12/12-21:17:56.687 3588 Reusing MANIFEST C:\Users\myra\AppData\Local\Temp\flutter_tools.9a6f1e75\flutter_tools_chrome_device.dd26184\Default\Site Characteristics Database/MANIFEST-000001
+=======
+2022/12/12-21:28:16.817 1eb0 Reusing MANIFEST C:\Users\ROYNAB~1\AppData\Local\Temp\flutter_tools.99535a91\flutter_tools_chrome_device.3c4d67ac\Default\Site Characteristics Database/MANIFEST-000001
+2022/12/12-21:28:16.818 1eb0 Recovering log #10
+2022/12/12-21:28:16.818 1eb0 Reusing old log C:\Users\ROYNAB~1\AppData\Local\Temp\flutter_tools.99535a91\flutter_tools_chrome_device.3c4d67ac\Default\Site Characteristics Database/000010.log 
+2022/12/12-21:28:16.819 1eb0 Delete type=2 #3
+2022/12/12-21:28:16.819 1eb0 Delete type=0 #3
+2022/12/12-21:28:16.819 1eb0 Delete type=0 #6
+2022/12/12-21:28:16.819 1eb0 Delete type=2 #7
+2022/12/12-21:28:16.819 1eb0 Delete type=2 #8
+>>>>>>> 87b83b747ba4e9d5095f873d2ec69f918d3eed55
