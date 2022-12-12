@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-2022/12/11-19:12:59.468 6644 Reusing MANIFEST C:\Users\myra\AppData\Local\Temp\flutter_tools.28495f0\flutter_tools_chrome_device.6fb42a87\Default\Session Storage/MANIFEST-000001
-2022/12/11-19:12:59.470 6644 Recovering log #3
-2022/12/11-19:12:59.472 6644 Reusing old log C:\Users\myra\AppData\Local\Temp\flutter_tools.28495f0\flutter_tools_chrome_device.6fb42a87\Default\Session Storage/000003.log 
-=======
-2022/12/11-18:37:00.308 7f10 Reusing MANIFEST C:\Users\mazay\AppData\Local\Temp\flutter_tools.727a506a\flutter_tools_chrome_device.726400e\Default\Session Storage/MANIFEST-000001
-2022/12/11-18:37:00.504 7f10 Recovering log #3
-2022/12/11-18:37:00.597 7f10 Reusing old log C:\Users\mazay\AppData\Local\Temp\flutter_tools.727a506a\flutter_tools_chrome_device.726400e\Default\Session Storage/000003.log 
->>>>>>> adf465b7243d1f0ee7445109872bd4fb0f0520b4
+2022/12/12-18:15:23.433 1f70 Creating DB C:\Users\ROYNAB~1\AppData\Local\Temp\flutter_tools.b370a179\flutter_tools_chrome_device.52542eb1\Default\Session Storage since it was missing.
+2022/12/12-18:15:23.449 1f70 Reusing MANIFEST C:\Users\ROYNAB~1\AppData\Local\Temp\flutter_tools.b370a179\flutter_tools_chrome_device.52542eb1\Default\Session Storage/MANIFEST-000001

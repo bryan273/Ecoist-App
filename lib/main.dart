@@ -2,6 +2,8 @@
 import 'package:ecoist/landing/components/drawer_admin.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/landing/components/drawer_unlogin.dart';
+import 'package:ecoist/main/api/home_api.dart';
+import 'package:ecoist/main/components/form_add_questions.dart';
 import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -30,8 +32,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           "/login": (BuildContext context) => const LoginPage(),
-          "/admin_ecoist": (BuildContext context) =>
-          const AdminEcoistPage(),
+          "/admin_ecoist": (BuildContext context) => const AdminEcoistPage(),
           '/home': (BuildContext context) => const MyHomePage(title: "-"),
         },
         initialRoute: "/home",
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key,  this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -53,83 +54,186 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+  final _formKey = GlobalKey<FormState>();
+  int count = 70;
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+    // fetchCount(request).then((int result) {
+    //   setState(() {
+    //     count = result;
+    //   });
+    // });
     WidgetsFlutterBinding.ensureInitialized();
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: const Text("ECOIST"),
-      ),
-      drawer:
-      const DrawerUser(),
-      // (widget.title == "-") || (widget.title == "ECOIST")
-      // ? const DrawerUnlogin()
-      // : widget.title == "Admin"
-      //     ? const DrawerAdmin()
-      //     : const DrawerUser(),
-
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        backgroundColor: Colors.lightBlue[50],
+        appBar: AppBar(
+          title: const Text("ECOIST"),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        drawer:
+            //const DrawerUser(),
+            (widget.title == "-") || (widget.title == "ECOIST")
+                ? const DrawerUnlogin()
+                : widget.title == "Admin"
+                    ? const DrawerAdmin()
+                    : const DrawerUser(),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget> [
+                  Container(
+                    height:200,
+                    width: MediaQuery.of(context).size.width,         
+                    decoration: new BoxDecoration(
+                      image: new DecorationImage(image: new AssetImage("assets/images/forest.jpg"), fit: BoxFit.cover,),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                      const Text(
+                        "Ecoist",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(
+                        height:5,
+                      ),
+                      Text(
+                        "create a better world. together.",
+                        style: TextStyle(
+                          color: Colors.blue[100]
+                        ),
+                      ), 
+                    ],
+                    )
+                  ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/1.5, 
+                  decoration : BoxDecoration(
+                    color:Colors.blue,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: const EdgeInsets.all(16),
+                  child : Column(children:[
+                    FutureBuilder(
+                      future: fetchCount(request),
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.data == null) {
+                          return const Center(child: CircularProgressIndicator());
+                        } else {
+                          return Text(
+                            '${snapshot.data}',
+                            style: const TextStyle(
+                                        fontSize: 60.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                          );
+                        }
+                      }
+                    ),
+                    const Text(
+                      "campaigns have been started in ecoist",
+                        style: TextStyle(
+                                        fontSize: 20.0,
+                                        
+                                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ]),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                FormAddQuestions(formKey: _formKey, user: widget.title),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text(
+                  "Recently asked questions",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  
+                ),
+                FutureBuilder(
+                  future: fetchRecentQuestions(request),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.data == null) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else {
+                      if (snapshot.data.length == 0) {
+                        return Column(
+                          children: const [
+                            Text(
+                              "0 question have been asked",
+                              style: TextStyle(
+                                  color: Color(0xff59A5D8), fontSize: 20),
+                            ),
+                            SizedBox(height: 8),
+                          ],
+                        );
+                      } else {
+                        // ini harus diubah jadi return listview builder
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: snapshot.data?.length,
+                          itemBuilder: (_, index) => Container(
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12),
+                            padding: const EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: Center(
+                              child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Question from ${snapshot.data[index].username}",
+                                  style:  TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.grey[500],
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 7),
+                                Text("${snapshot.data[index].question}",
+                                  style:  TextStyle(
+                                      fontSize: 15.0,
+                                      color: Colors.grey[700],
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ]),
+                            ),
+                          ),
+                        );
+                      }
+                    }
+                  },
+                )
+              ],
+            ),
+          ),
+          // This trailing comma makes auto-formatting nicer for build methods.
+        ));
   }
 }

@@ -1,6 +1,13 @@
 # Ecoist-flutter
 PBP Gasal 2022 final project 
 
+[![Build status](https://build.appcenter.ms/v0.1/apps/0a092e06-288f-4943-a0fb-478280ca4c72/branches/main/badge)](https://appcenter.ms)
+[![Develop](https://github.com/bryan273/ecoist_flutter/actions/workflows/develop.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/develop.yml)
+[![Pre-Release](https://github.com/bryan273/ecoist_flutter/actions/workflows/pre-release.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/pre-release.yml)
+[![Release](https://github.com/bryan273/ecoist_flutter/actions/workflows/release.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/release.yml)
+
+(Note: apk kami deploy tidak dari repository ini, melainkan dari repository fork https://github.com/bryan273/ecoist_flutter )
+
 # Ecoist
 
 ## Anggota
