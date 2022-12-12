@@ -49,6 +49,28 @@ class DrawerUser extends StatelessWidget {
             },
           ),
           ListTile(
+            title: const Text('Donate'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MyDonatePage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Donate List'),
+            onTap: () {
+              // Route menu ke halaman utama
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const DonateList()),
+              );
+            },
+          ),
+          ListTile(
             title: const Text('Logout'),
             onTap: () {
               // Route menu ke halaman utama
