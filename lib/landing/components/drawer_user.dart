@@ -32,7 +32,7 @@ class DrawerUser extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => const MyHomePage(
-                          title: "Admin",
+                          title: "Home",
                 )),
               );
             },
@@ -59,19 +59,6 @@ class DrawerUser extends StatelessWidget {
                     builder: (context) => const MyHomePage(
                           title: "-",
                         )),
-              );
-            },
-          ),
-          ListTile(
-            title: const Text('Join Campaign'),
-            onTap: () {
-              // Route menu ke halaman utama
-              logout(request);
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ParticipatePage(
-                    )),
               );
             },
           ),

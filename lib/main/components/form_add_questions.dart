@@ -1,3 +1,5 @@
+import 'package:ecoist/main.dart';
+import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
 import 'package:ecoist/main/api/home_api.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,13 +33,16 @@ class _FormAddQuestions extends State<FormAddQuestions> {
           child: 
             (widget.user != "-") && (widget.user != "ECOIST")
             ?
-            Column(children: [
-              const Center(
-                child: Text(
-                  "Have something to ask? Drop your questions below!",
-                  style: TextStyle(fontSize: 18),
-                ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              
+              const Text(
+                "Have something to ask? Drop your questions below!",
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
               ),
+              
               const SizedBox(
                 height: 10,
               ),
@@ -47,7 +52,6 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 decoration: InputDecoration(
                   hintText: "Type your question",
                   labelText: "Question",
-                  icon: const Icon(Icons.title),
                   // Menambahkan icon agar lebih intuitif
                   // Menambahkan circular border agar lebih rapi
                   border: OutlineInputBorder(
@@ -80,14 +84,18 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     addQuestion(request, question);
-                    _controller.clear;
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => const MyHomePage(title: "User"),
+                        ));
                     //print('---------------------------------------------berhasil');
 
                   }
                   //print('--------------------------------------------kepencet tapi gagal');
                 },
                 child: const Text(
-                  "Add",
+                  "Submit",
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
@@ -98,6 +106,7 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 child: Text(
                   "Have something to ask? Drop your questions below!",
                   style: TextStyle(fontSize: 18),
+                  textAlign: TextAlign.center,
                 ),
               ),
               const SizedBox(
@@ -109,7 +118,6 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 decoration: InputDecoration(
                   hintText: "Type your question",
                   labelText: "Question",
-                  icon: const Icon(Icons.title),
                   // Menambahkan icon agar lebih intuitif
                   // Menambahkan circular border agar lebih rapi
                   border: OutlineInputBorder(

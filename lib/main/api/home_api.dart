@@ -5,9 +5,9 @@ var port = 'https://ecoist.up.railway.app';
 
 Future<int> fetchCount(request) async {
   var url = '$port/flutter-get-campaign-sum/';
-  print('------fetching count');
+  //print('------fetching count');
   final response = await request.get(url);
-  print('------function berhasil dengan response ${response[0]["count"]}');
+  //print('------function berhasil dengan response ${response[0]["count"]}');
 
   int data = response[0]["count"];
   return data;
@@ -22,12 +22,12 @@ Future<String> getLastQuestion(request) async {
 
 void addQuestion(request, question) async {
   var url = '$port/flutter-submit-question/';
-  print('---------------------pertanyaannya adalahhh $question');
+  //print('---------------------pertanyaannya adalahhh $question');
   await request.post(url, {"question": question});
 }
 
 Future<List<Question>> fetchRecentQuestions(request) async {
-  print('fetcing questions.................................');
+  //print('fetcing questions.................................');
 
   var url = '$port/flutter-getrecentquestions/';
   var response = await request.get(url);
@@ -38,7 +38,7 @@ Future<List<Question>> fetchRecentQuestions(request) async {
     // print('masuk');
     if (d != null) {
       // print('json');
-      print(d);
+      //print(d);
       dataQuestions.add(Question.fromJson(d));
     }
   }

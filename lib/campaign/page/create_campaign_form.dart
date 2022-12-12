@@ -121,6 +121,16 @@ class _CreateCampaignForm extends State <CreateCampaignPage>{
                         onPressed: (){
                               if (_formKey.currentState!.validate()) {
                                 addCampaign(request, _judul, _deskripsi);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const CampaignPage()),
+                          );
+                          showDialog(
+                            context: context,
+                            builder: (_) => const AlertDialog(
+                              title: Text('Thank You!'),
+                            )
+                          );
                          }
                         }, 
                           child: const Text(
