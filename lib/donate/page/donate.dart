@@ -1,7 +1,3 @@
-import 'dart:html';
-import 'dart:js_util';
-// import 'dart:html';
-
 import 'package:ecoist/donate/page/donate-list.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/donate/model/donation.dart';
