@@ -1,7 +1,7 @@
 import 'package:ecoist/main/model/question.dart';
 
-var port = 'http://127.0.0.1:8000';
-//var port = 'https://ecoist.up.railway.app;
+//var port = 'http://127.0.0.1:8000';
+var port = 'https://ecoist.up.railway.app';
 
 Future<int> fetchCount(request) async {
   var url = '$port/flutter-get-campaign-sum/';
@@ -29,7 +29,7 @@ void addQuestion(request, question) async {
 Future<List<Question>> fetchRecentQuestions(request) async {
   print('fetcing questions.................................');
 
-  var url = '$port/flutter-getrecentquestions';
+  var url = '$port/flutter-getrecentquestions/';
   var response = await request.get(url);
 
   List<Question> dataQuestions = [];
