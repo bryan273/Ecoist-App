@@ -93,7 +93,7 @@ class _CreateCampaignForm extends State <CreateCampaignPage>{
                           // Menambahkan behavior saat nama diketik
                           onChanged: (String? value) {
                             setState(() {
-                              _judul = value!;
+                              _deskripsi = value!;
                             });
                           },
                           // Menambahkan behavior saat data disimpan
