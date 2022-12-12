@@ -1,6 +1,13 @@
 # Ecoist-flutter
 PBP Gasal 2022 final project 
 
+[![Build status](https://build.appcenter.ms/v0.1/apps/0a092e06-288f-4943-a0fb-478280ca4c72/branches/main/badge)](https://appcenter.ms)
+[![Develop](https://github.com/bryan273/ecoist_flutter/actions/workflows/develop.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/develop.yml)
+[![Pre-Release](https://github.com/bryan273/ecoist_flutter/actions/workflows/pre-release.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/pre-release.yml)
+[![Release](https://github.com/bryan273/ecoist_flutter/actions/workflows/release.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/release.yml)
+
+(Note: apk kami deploy tidak dari repository ini, melainkan dari repository fork https://github.com/bryan273/ecoist_flutter )
+
 # Ecoist
 
 ## Anggota
@@ -27,31 +34,39 @@ Situs Ecoist adalah situs yang bertujuan untuk menyebarkan kesadaran kepada masy
 
 2. Log In & Log Out - Bryan 
     
-    Login dan logout berisi form untuk mengautentikasi dan membedakan antara user dan admin. Menggunakan modal untuk regist , kemudian menggunakan AJAX  POST & GET. 
+    Login dan logout berisi form untuk mengautentikasi dan membedakan antara user dan admin. Menggunakan method post. 
 
 3. Home Page - Roy
     
-    Merupakan page yang akan ditampilkan saat awal orang memasuki website. Melalui page ini orang dapat di-redirect menuju page lainnya sesuai kebutuhan. Dalam page ini berisi deskripsi website, perkenalan tim pembuat web, serta form FAQ (menggunakan AJAX POST) jika pengunjung ingin memberikan masukan. Dalam laman ini, akan ditampilkan jumlah kampanye yang telah dibuat, bagian ini akan menggunakan AJAX GET.
+    Merupakan page yang akan ditampilkan saat awal orang memasuki website. Melalui page ini orang dapat di-redirect menuju page lainnya sesuai kebutuhan. Dalam page ini berisi judul aplikasi, jumlah campaign yang telah dibuat (menggunakan method get), serta form FAQ (menggunakan method post) yang juga menampilkan pertanyaan-pertanyaan yang terakhir disumbit (menggunakan method get).
 
 4. Create Campaign - Hatta
 
-    Sebuah modal yang berisi form untuk mendaftarkan campaign. Di sini akan dilakukan implementasi AJAX GET
+    Sebuah page yang berisi form untuk mendaftarkan campaign. Di sini akan dilakukan implementasi method post.
 
 5. Campaign list - Hatta
     
-    Berisi campaign-campaign yang dibuat oleh user. Di sini akan dilakukan implementasi AJAX POST dan AJAX GET
+    Berisi campaign-campaign yang dibuat oleh user. Di sini akan dilakukan implementasi method get. 
 
 6. Join Campaign - Adish
     
-    Fitur ini digunakan untuk user yang ingin mengikuti kampanye. User dapat mengisi form yang terdaftar untuk join campaign menanam/membersihkan hutan. Ketika user submit, akan dilakukan AJAX post berupa kampanye berhasil diikuti dan detail kampanye.
+    Fitur ini digunakan untuk user yang ingin mengikuti kampanye. User dapat mengisi form yang terdaftar untuk join campaign menanam/membersihkan hutan. Akan mengimplementasikan method post.
 
 7. Donate - Maza 
 
-    Ini adalah fitur donasi untuk memfasilitasi user yang sudah login untuk berdonasi. Terdapat form untuk memasukkan input nominal donasi, jumlah pohon yang ingin didonasikan, dan catatan/pesan untuk kami serta tombol submit untuk menginput donasi. Ketika user ingin men-submit donasi, maka tombol submit tersebut akan menggunakan AJAX POST untuk menginput data yang dimasukkan user ke dalam database. Jika user belum login, maka akan di redirect ke halaman login terlebih dahulu.
+   Page ini akan memfasilitasi user yang sudah login untuk berdonasi. Terdapat form untuk memasukkan input nominal donasi, jumlah pohon yang ingin didonasikan, dan catatan/pesan untuk kami serta tombol submit untuk menginput donasi. Akan mengimplementasikan method post untuk mengirim data yang dimasukkan user ke dalam database. Setelah user melakukan post, akan muncul modal yang berisi informasi donasi dan tombol ke halaman list donasi.
 
-8. Admin Features - Bryan
+8. Donate list - Maza 
 
-    Merupakan fitur / web yang khusus bisa diakses oleh admin. Fitur yang khusus ini dapat digunakan untuk melihat data tentang user. Misalnya, melihat dashboard pageview dan click, total donasi yang ada, dan total campaign yang telah diikuti.
+    Page ini akan menampilkan donasi yang telah dilakukan. Akan mengimplemntasikan method get.
+
+9. Participant list - Adish 
+
+    Page ini akan menampilkan participant yang telah dilakukan. Akan mengimplemntasikan method get.
+
+10. Admin Features - Bryan
+
+    Merupakan fitur / web yang khusus bisa diakses oleh admin. Fitur yang khusus ini dapat digunakan untuk melihat data tentang user. Misalnya, melihat dashboard pageview dan click, total donasi yang ada, dan total campaign yang telah diikuti. Akan mengimplementasikan method get untuk mendapatkan data dari database serta method post untuk menambahkan note.
 
 
 
