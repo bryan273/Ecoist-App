@@ -33,13 +33,16 @@ class _FormAddQuestions extends State<FormAddQuestions> {
           child: 
             (widget.user != "-") && (widget.user != "ECOIST")
             ?
-            Column(children: [
-              const Center(
-                child: Text(
-                  "Have something to ask? Drop your questions below!",
-                  style: TextStyle(fontSize: 18),
-                ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              
+              const Text(
+                "Have something to ask? Drop your questions below!",
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
               ),
+              
               const SizedBox(
                 height: 10,
               ),
@@ -49,7 +52,6 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 decoration: InputDecoration(
                   hintText: "Type your question",
                   labelText: "Question",
-                  icon: const Icon(Icons.title),
                   // Menambahkan icon agar lebih intuitif
                   // Menambahkan circular border agar lebih rapi
                   border: OutlineInputBorder(
@@ -104,6 +106,7 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 child: Text(
                   "Have something to ask? Drop your questions below!",
                   style: TextStyle(fontSize: 18),
+                  textAlign: TextAlign.center,
                 ),
               ),
               const SizedBox(
@@ -115,7 +118,6 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 decoration: InputDecoration(
                   hintText: "Type your question",
                   labelText: "Question",
-                  icon: const Icon(Icons.title),
                   // Menambahkan icon agar lebih intuitif
                   // Menambahkan circular border agar lebih rapi
                   border: OutlineInputBorder(

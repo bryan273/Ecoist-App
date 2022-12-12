@@ -71,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // });
     WidgetsFlutterBinding.ensureInitialized();
     return Scaffold(
+        backgroundColor: Colors.lightBlue[50],
         appBar: AppBar(
           title: const Text("ECOIST"),
         ),
@@ -85,47 +86,72 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image.asset(
-                  'assets/images/forest.jpg',
-                  height: 300,
-                  fit: BoxFit.fitWidth,
-                ),
+              children: <Widget> [
+                  Container(
+                    height:200,
+                    width: MediaQuery.of(context).size.width,         
+                    decoration: new BoxDecoration(
+                      image: new DecorationImage(image: new AssetImage("assets/images/forest.jpg"), fit: BoxFit.cover,),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                      const Text(
+                        "Ecoist",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(
+                        height:5,
+                      ),
+                      Text(
+                        "create a better world. together.",
+                        style: TextStyle(
+                          color: Colors.blue[100]
+                        ),
+                      ), 
+                    ],
+                    )
+                  ),
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
-                  'Welcome to Ecoist,\n where we can create a better world together.',
-                  style:  TextStyle(
-                                fontSize: 20.0,
-                                ),
-                  
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                FutureBuilder(
-                  future: fetchCount(request),
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (snapshot.data == null) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else {
-                      return Text(
-                        '${snapshot.data}',
-                        style: const TextStyle(
-                                    fontSize: 30.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                      );
-                    }
-                  }
-                ),
-                const Text(
-                  "campaigns have been started in ecoist",
-                    style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                Container(
+                  width: MediaQuery.of(context).size.width/1.5, 
+                  decoration : BoxDecoration(
+                    color:Colors.blue,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: const EdgeInsets.all(16),
+                  child : Column(children:[
+                    FutureBuilder(
+                      future: fetchCount(request),
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.data == null) {
+                          return const Center(child: CircularProgressIndicator());
+                        } else {
+                          return Text(
+                            '${snapshot.data}',
+                            style: const TextStyle(
+                                        fontSize: 60.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                          );
+                        }
+                      }
+                    ),
+                    const Text(
+                      "campaigns have been started in ecoist",
+                        style: TextStyle(
+                                        fontSize: 20.0,
+                                        
+                                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ]),
                 ),
                 const SizedBox(
                   height: 30,
@@ -133,6 +159,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 FormAddQuestions(formKey: _formKey, user: widget.title),
                 const SizedBox(
                   height: 30,
+                ),
+                const Text(
+                  "Recently asked questions",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  
                 ),
                 FutureBuilder(
                   future: fetchRecentQuestions(request),
@@ -159,14 +195,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           itemBuilder: (_, index) => Container(
                             margin: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 12),
-                            padding: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.all(10.0),
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(15.0),
-                                boxShadow: const [
-                                  BoxShadow(
-                                      color: Colors.black, blurRadius: 2.0)
-                                ]),
+                            ),
                             child: Center(
                               child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -174,15 +207,20 @@ class _MyHomePageState extends State<MyHomePage> {
                               children: [
                                 Text(
                                   "Question from ${snapshot.data[index].username}",
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                     fontSize: 12.0,
+                                    color: Colors.grey[500],
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 7),
                                 Text("${snapshot.data[index].question}",
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                       fontSize: 15.0,
+                                      color: Colors.grey[700],
+                                      fontWeight: FontWeight.bold,
                                     ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ]),
                             ),
