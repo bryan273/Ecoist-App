@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ecoist/main.dart';
 import 'package:ecoist/campaign/model/campaign.dart';
+import 'package:ecoist/campaign/page/create_campaign_form.dart';
 
 class CampaignPage extends StatefulWidget {
   const CampaignPage ({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class CampaignPage extends StatefulWidget {
 class _CampaignPageState extends State<CampaignPage> {
 
   Future<List<Campaign>> fetchCampaign() async {
-    var url = Uri.parse('https://ecoist.up.railway.app/campaign/json');
+    var url = Uri.parse('http://127.0.0.1:8000/campaign/json');
     var response = await http.get(
       url,
       headers: {
@@ -59,6 +60,18 @@ class _CampaignPageState extends State<CampaignPage> {
                 );
               },
             ),
+            ListTile(
+              title: const Text("Create Campaign"),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context, 
+                  MaterialPageRoute(builder: (context) => const CreateCampaignPage(
+                      title: 'Create Campaign'
+                    )
+                  )
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -81,34 +94,6 @@ class _CampaignPageState extends State<CampaignPage> {
                 ],
                 );
             } else {
-              //      return ListView.builder(
-              //       itemCount: snapshot.data!.length,
-              //       itemBuilder: (_, index) => Card(
-              //               child: InkWell(
-              //             onTap: () {
-              //               Navigator.pushReplacement(
-              //                   context,
-              //                   MaterialPageRoute(
-              //                     builder: (context) => DetailWatchlistPage(
-              //                         fields: snapshot.data![index].fields),
-              //                   ));
-              //             },
-              //                 child: Column(
-              //                     mainAxisAlignment: MainAxisAlignment.start,
-              //                     crossAxisAlignment: CrossAxisAlignment.start,
-              //                     children: [
-              //                     Text(
-              //                         "${snapshot.data![index].fields['title']}",
-              //                         style: const TextStyle(
-              //                         fontSize: 18.0,
-              //                         fontWeight: FontWeight.bold,
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     )
-              //   )
-              // );
                       return ListView.builder(
                         itemCount: snapshot.data!.length,
                         itemBuilder: (_, index)=> Container(
