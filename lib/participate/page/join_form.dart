@@ -4,7 +4,7 @@ import 'package:ecoist/main.dart';
 import 'package:ecoist/landing/components/drawer_user.dart';
 import 'package:ecoist/participate/page/participants.dart';
 import 'package:provider/provider.dart';
-import 'package:ecoist/participate/fetch_participants.dart';
+import 'package:ecoist/participate/api/fetch_participants.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class ParticipatePage extends StatefulWidget {
@@ -211,9 +211,16 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                   ),
                 ),
 
-                TextButton(
+                SizedBox(height: 50),
+
+              SizedBox(
+                width: 100, // <-- Your width
+                height: 50, // <-- Your height
+                child:TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.all(10)),
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
@@ -221,6 +228,13 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const ParticipatePage()),
+                      );
+                      showDialog(
+                          context: context,
+                          builder: (_) => const AlertDialog(
+                            title: Text('Thank you for participating! :)'),
+                            content: Text("We'll send the further details to your e-mail."),
+                          )
                       );
                       clearText();
                     }
@@ -230,23 +244,12 @@ class _ParticipateFormPageState extends State<ParticipatePage> {
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
-                TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  ),
-                  onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const InputParticipants()),
-                      );
-                      clearText();
-                  },
-                  child: const Text(
-                    "Info Partisipan",
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
                 ),
-                TextButton(
+
+                SizedBox(height: 50),
+
+
+                ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
