@@ -1,3 +1,5 @@
+import 'package:ecoist/main.dart';
+import 'package:ecoist/admin_ecoist/page/admin_ecoist.dart';
 import 'package:ecoist/main/api/home_api.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -80,14 +82,18 @@ class _FormAddQuestions extends State<FormAddQuestions> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     addQuestion(request, question);
-                    _controller.clear;
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => const MyHomePage(title: "User"),
+                        ));
                     //print('---------------------------------------------berhasil');
 
                   }
                   //print('--------------------------------------------kepencet tapi gagal');
                 },
                 child: const Text(
-                  "Add",
+                  "Submit",
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
