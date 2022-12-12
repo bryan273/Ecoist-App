@@ -29,7 +29,7 @@ void addQuestion(request, question) async {
 Future<List<Question>> fetchRecentQuestions(request) async {
   print('fetcing questions.................................');
 
-  var url = '$port/flutter-getrecentquestions';
+  var url = '$port/flutter-getrecentquestions/';
   var response = await request.get(url);
 
   List<Question> dataQuestions = [];
