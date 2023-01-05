@@ -9,8 +9,8 @@ import 'package:ecoist/admin_ecoist/model/dist2.dart';
 var port = '127.0.0.1:8000';
 
 Future<List<TopUser>> fetchTopUser(request) async {
-  var url = 'https://ecoist.up.railway.app/flutter_top_user/'; 
-  // var url = 'http://$port/flutter_top_user/';
+  // var url = 'https://ecoist.up.railway.app/flutter_top_user/'; 
+  var url = 'http://$port/flutter_top_user/';
   var response = await request.get(url);
   var data = response['table_top_5'];
   // print('response ini');
@@ -30,8 +30,8 @@ Future<List<TopUser>> fetchTopUser(request) async {
 }
 
 Future<List<Bar1>> fetchTopDonation(request) async {
-  var url = 'https://ecoist.up.railway.app/flutter_top_donations/'; 
-  // var url = 'http://$port/flutter_top_donations/';
+  // var url = 'https://ecoist.up.railway.app/flutter_top_donations/'; 
+  var url = 'http://$port/flutter_top_donations/';
   var response = await request.get(url);
   var data = response['don_top_5'];
   
@@ -47,8 +47,8 @@ Future<List<Bar1>> fetchTopDonation(request) async {
 }
 
 Future<List<Bar2>> fetchTopCampaigns(request) async {
-  // var url = 'http://$port/flutter_top_campaigns/';
-  var url = 'https://ecoist.up.railway.app/flutter_top_campaigns/';
+  var url = 'http://$port/flutter_top_campaigns/';
+  // var url = 'https://ecoist.up.railway.app/flutter_top_campaigns/';
   var response = await request.get(url);
   var data = response['par_top_5'];
   
@@ -64,8 +64,8 @@ Future<List<Bar2>> fetchTopCampaigns(request) async {
 }
 
 Future<List<Dist1>> fetchDistDonations(request) async {
-  var url = 'https://ecoist.up.railway.app/flutter_dist_donations/'; 
-  // var url = 'http://$port/flutter_dist_donations/';
+  // var url = 'https://ecoist.up.railway.app/flutter_dist_donations/'; 
+  var url = 'http://$port/flutter_dist_donations/';
   var response = await request.get(url);
   var data = response['don_dist'];
   
@@ -81,8 +81,8 @@ Future<List<Dist1>> fetchDistDonations(request) async {
 }
 
 Future<List<Dist2>> fetchDistCampaigns(request) async {
-  var url = 'https://ecoist.up.railway.app/flutter_dist_campaigns/'; 
-  // var url = 'http://$port/flutter_dist_campaigns/';
+  // var url = 'https://ecoist.up.railway.app/flutter_dist_campaigns/'; 
+  var url = 'http://$port/flutter_dist_campaigns/';
   var response = await request.get(url);
   var data = response['par_dist'];
   
@@ -98,8 +98,8 @@ Future<List<Dist2>> fetchDistCampaigns(request) async {
 }
 
 Future<Map<String, String>> fetchText(request) async {
-  // var url = 'http://$port/flutter_text/';
-  var url = 'https://ecoist.up.railway.app/flutter_text/'; 
+  var url = 'http://$port/flutter_text/';
+  // var url = 'https://ecoist.up.railway.app/flutter_text/'; 
   var data = await request.get(url);
   // print(data['username']);
   Map<String, String> map1 = {'username': data['username'],
@@ -113,7 +113,7 @@ Future<Map<String, String>> fetchText(request) async {
 
 void addNotes(request, nama, note) async {
   await request.post(
-      'https://ecoist.up.railway.app/flutter_notes/',
-      // 'http://$port/flutter_notes/',
+      // 'https://ecoist.up.railway.app/flutter_notes/',
+      'http://$port/flutter_notes/',
       {"nama": nama, "note": note});
 }

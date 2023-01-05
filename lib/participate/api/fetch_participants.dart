@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ecoist/participate/model/participation.dart';
 
-
 Future<List<Participants>> fetchParticipants() async {
   var url = Uri.parse('https://ecoist.up.railway.app/participate/json/');
   var response = await http.get(

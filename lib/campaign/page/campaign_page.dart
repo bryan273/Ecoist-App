@@ -7,6 +7,9 @@ import 'package:ecoist/main.dart';
 import 'package:ecoist/campaign/model/campaign.dart';
 import 'package:ecoist/campaign/page/create_campaign_form.dart';
 
+// var port = 'https://ecoist.up.railway.app';
+var port = '127.0.0.1:8000';
+
 class CampaignPage extends StatefulWidget {
   const CampaignPage ({Key? key}) : super(key: key);
 
@@ -19,7 +22,7 @@ class CampaignPage extends StatefulWidget {
 class _CampaignPageState extends State<CampaignPage> {
 
   Future<List<Campaign>> fetchCampaign() async {
-    var url = Uri.parse('https://ecoist.up.railway.app/campaign/json');
+    var url = Uri.parse('$port/campaign/json');
     var response = await http.get(
       url,
       headers: {
