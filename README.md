@@ -1,4 +1,4 @@
-# Ecoist-flutter
+# Ecoist-App
 PBP Gasal 2022 final project 
 
 [![Build status](https://build.appcenter.ms/v0.1/apps/0a092e06-288f-4943-a0fb-478280ca4c72/branches/main/badge)](https://appcenter.ms)
