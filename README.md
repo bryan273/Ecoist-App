@@ -10,6 +10,8 @@ Link download apk: https://install.appcenter.ms/orgs/ecoist/apps/ecoist/distribu
 
 (Note: pastikan download versi terbaru)
 
+Our web : https://github.com/bryan273/Ecoist-Web
+
 # Ecoist
 
 ## Anggota
