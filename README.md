@@ -73,43 +73,43 @@ Situs Ecoist adalah situs yang bertujuan untuk menyebarkan kesadaran kepada masy
 <img src="https://user-images.githubusercontent.com/88226713/211130800-ebb3e19c-d632-4159-ad67-2d3f70527f84.jpg" width="200" height="396"/><img src="https://user-images.githubusercontent.com/88226713/211130802-9669c19b-2ec2-4d07-82b4-64b6bb103abf.jpg" width="200" height="396"/><img src="https://user-images.githubusercontent.com/88226713/211130804-95a5e69b-81a8-4e2e-9ad8-d9c252e5586a.jpg" width="200" height="396"/>
 
 ## Deskripsi Modul
-1. Register - Bryan
+1. Register
     
     Register berisi form untuk membuat akun agar user dapat melakukan kegiatan dalam website. 
 
-2. Log In & Log Out - Bryan 
+2. Log In & Log Out
     
     Login dan logout berisi form untuk mengautentikasi dan membedakan antara user dan admin. Menggunakan method post. 
 
-3. Home Page - Roy
+3. Home Page
     
     Merupakan page yang akan ditampilkan saat awal orang memasuki website. Melalui page ini orang dapat di-redirect menuju page lainnya sesuai kebutuhan. Dalam page ini berisi judul aplikasi, jumlah campaign yang telah dibuat (menggunakan method get), serta form FAQ (menggunakan method post) yang juga menampilkan pertanyaan-pertanyaan yang terakhir disumbit (menggunakan method get).
 
-4. Create Campaign - Hatta
+4. Create Campaign
 
     Sebuah page yang berisi form untuk mendaftarkan campaign. Di sini akan dilakukan implementasi method post.
 
-5. Campaign List - Hatta
+5. Campaign List
     
     Berisi campaign-campaign yang dibuat oleh user. Di sini akan dilakukan implementasi method get. 
 
-6. Join Campaign - Adish
+6. Join Campaign
     
     Fitur ini digunakan untuk user yang ingin mengikuti kampanye. User dapat mengisi form yang terdaftar untuk join campaign menanam/membersihkan hutan. Akan mengimplementasikan method post.
 
-7. Donate - Maza 
+7. Donate
 
    Page ini akan memfasilitasi user yang sudah login untuk berdonasi. Terdapat form untuk memasukkan input nominal donasi, jumlah pohon yang ingin didonasikan, dan catatan/pesan untuk kami serta tombol submit untuk menginput donasi. Akan mengimplementasikan method post untuk mengirim data yang dimasukkan user ke dalam database. Setelah user melakukan post, akan muncul modal yang berisi informasi donasi dan tombol ke halaman list donasi.
 
-8. Donate list - Maza 
+8. Donate List
 
     Page ini akan menampilkan donasi yang telah dilakukan. Akan mengimplemntasikan method get.
 
-9. Participant list - Adish 
+9. Participant List
 
     Page ini akan menampilkan participant yang telah dilakukan. Akan mengimplemntasikan method get.
 
-10. Admin Features - Bryan
+10. Admin Features
 
     Merupakan fitur / web yang khusus bisa diakses oleh admin. Fitur yang khusus ini dapat digunakan untuk melihat data tentang user. Misalnya, melihat dashboard top user, distribusi donasi dan kampanye, total donasi yang ada, dan total campaign yang telah diikuti. Fitur ini diimplementasikan dengan method get untuk mendapatkan data dari database serta method post untuk menambahkan note.
 
