@@ -8,6 +8,10 @@ PBP Gasal 2022 final project
 
 (Note: apk kami deploy tidak dari repository ini, melainkan dari repository fork https://github.com/bryan273/ecoist_flutter )
 
+Link download apk: install.appcenter.ms/orgs/ecoist/apps/ecoist/distribution_groups/public
+
+(Note: pastikan download versi terbaru)
+
 # Ecoist
 
 ## Anggota
