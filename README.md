@@ -6,9 +6,9 @@ PBP Gasal 2022 final project
 [![Pre-Release](https://github.com/bryan273/ecoist_flutter/actions/workflows/pre-release.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/pre-release.yml)
 [![Release](https://github.com/bryan273/ecoist_flutter/actions/workflows/release.yml/badge.svg)](https://github.com/bryan273/ecoist_flutter/actions/workflows/release.yml)
 
-(Note: apk kami deploy tidak dari repository ini, melainkan dari repository fork https://github.com/bryan273/ecoist_flutter )
+(Note: apk kami deploy tidak dari repository ini, melainkan dari repository fork https://github.com/bryan273/Ecoist-App )
 
-Link download apk: install.appcenter.ms/orgs/ecoist/apps/ecoist/distribution_groups/public
+Link download apk: https://install.appcenter.ms/orgs/ecoist/apps/ecoist/distribution_groups/public
 
 (Note: pastikan download versi terbaru)
 
