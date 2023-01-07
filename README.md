@@ -57,24 +57,22 @@ Situs Ecoist adalah situs yang bertujuan untuk menyebarkan kesadaran kepada masy
 
 
 7. Donate 
-<img src="https://user-images.githubusercontent.com/88226713/210934143-5dd4f3f7-b90c-4cf1-9bd9-0244bf638157.png" width="200" height="100"/>
-![donate](https://user-images.githubusercontent.com/88226713/211130764-fbd8322c-5965-469b-9332-910e9a7117fc.jpg)
+
+<img src="https://user-images.githubusercontent.com/88226713/211130764-fbd8322c-5965-469b-9332-910e9a7117fc.jpg" width="200" height="234"/>
 
 8. Donate List
-<img src="https://user-images.githubusercontent.com/88226713/210934143-5dd4f3f7-b90c-4cf1-9bd9-0244bf638157.png" width="400" height="200"/>
-![donate list](https://user-images.githubusercontent.com/88226713/211130775-8379b660-bc14-4940-8703-c90f0ccd78ae.jpg)
+
+<img src="https://user-images.githubusercontent.com/88226713/211130775-8379b660-bc14-4940-8703-c90f0ccd78ae.jpg" width="200" height="236"/>
 
 9. Participant List
-<img src="https://user-images.githubusercontent.com/88226713/210934143-5dd4f3f7-b90c-4cf1-9bd9-0244bf638157.png" width="400" height="200"/>
-![daftar partisipasi](https://user-images.githubusercontent.com/88226713/211130728-01a7c67d-a0ad-48ea-a45d-df74cd6167b1.jpg)
+
+<img src="https://user-images.githubusercontent.com/88226713/211130728-01a7c67d-a0ad-48ea-a45d-df74cd6167b1.jpg" width="200" height="356"/>
 
 10. Admin Features
-<img src="https://user-images.githubusercontent.com/88226713/210934143-5dd4f3f7-b90c-4cf1-9bd9-0244bf638157.png" width="400" height="200"/>
-![top 5 user](https://user-images.githubusercontent.com/88226713/211130788-5bc70040-e3dc-4022-8049-4e4f66ec78f7.jpg)
-![add note](https://user-images.githubusercontent.com/88226713/211130796-c7526f6f-f4f9-4fcd-bfb8-1ac5008af390.jpg)
-![admin 1](https://user-images.githubusercontent.com/88226713/211130800-ebb3e19c-d632-4159-ad67-2d3f70527f84.jpg)
-![admin 2](https://user-images.githubusercontent.com/88226713/211130802-9669c19b-2ec2-4d07-82b4-64b6bb103abf.jpg)
-![admin 3](https://user-images.githubusercontent.com/88226713/211130804-95a5e69b-81a8-4e2e-9ad8-d9c252e5586a.jpg)
+
+<img src="https://user-images.githubusercontent.com/88226713/211130788-5bc70040-e3dc-4022-8049-4e4f66ec78f7.jpg" width="200" height="396"/><img src="https://user-images.githubusercontent.com/88226713/211130796-c7526f6f-f4f9-4fcd-bfb8-1ac5008af390.jpg" width="200" height="396"/>
+
+<img src="https://user-images.githubusercontent.com/88226713/211130800-ebb3e19c-d632-4159-ad67-2d3f70527f84.jpg" width="200" height="396"/><img src="https://user-images.githubusercontent.com/88226713/211130802-9669c19b-2ec2-4d07-82b4-64b6bb103abf.jpg" width="200" height="396"/><img src="https://user-images.githubusercontent.com/88226713/211130804-95a5e69b-81a8-4e2e-9ad8-d9c252e5586a.jpg" width="200" height="396"/>
 
 ## Deskripsi Modul
 1. Register - Bryan
