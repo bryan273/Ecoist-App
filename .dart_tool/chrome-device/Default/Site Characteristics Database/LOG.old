@@ -1,20 +1,8 @@
-<<<<<<< HEAD
-2022/12/12-21:17:56.583 3588 Log #3: 3 ops saved to Table #7 OK
-2022/12/12-21:17:56.591 3588 Archiving C:\Users\myra\AppData\Local\Temp\flutter_tools.9a6f1e75\flutter_tools_chrome_device.dd26184\Default\Site Characteristics Database/000003.log: OK
-2022/12/12-21:17:56.628 3588 Log #6: 15 ops saved to Table #8 OK
-2022/12/12-21:17:56.648 3588 Archiving C:\Users\myra\AppData\Local\Temp\flutter_tools.9a6f1e75\flutter_tools_chrome_device.dd26184\Default\Site Characteristics Database/000006.log: OK
-2022/12/12-21:17:56.649 3588 Table #3: 3 entries OK
-2022/12/12-21:17:56.650 3588 Table #7: 3 entries OK
-2022/12/12-21:17:56.658 3588 Table #8: 15 entries OK
-2022/12/12-21:17:56.669 3588 Archiving C:\Users\myra\AppData\Local\Temp\flutter_tools.9a6f1e75\flutter_tools_chrome_device.dd26184\Default\Site Characteristics Database/MANIFEST-000001: OK
-2022/12/12-21:17:56.679 3588 **** Repaired leveldb C:\Users\myra\AppData\Local\Temp\flutter_tools.9a6f1e75\flutter_tools_chrome_device.dd26184\Default\Site Characteristics Database; recovered 3 files; 1094 bytes. Some data may have been lost. ****
-=======
-2022/12/12-21:25:27.139 6194 Reusing MANIFEST C:\Users\ROYNAB~1\AppData\Local\Temp\flutter_tools.d9aeeea1\flutter_tools_chrome_device.70dab0c5\Default\Site Characteristics Database/MANIFEST-000001
-2022/12/12-21:25:27.140 6194 Recovering log #10
-2022/12/12-21:25:27.140 6194 Reusing old log C:\Users\ROYNAB~1\AppData\Local\Temp\flutter_tools.d9aeeea1\flutter_tools_chrome_device.70dab0c5\Default\Site Characteristics Database/000010.log 
-2022/12/12-21:25:27.141 6194 Delete type=2 #3
-2022/12/12-21:25:27.141 6194 Delete type=0 #3
-2022/12/12-21:25:27.141 6194 Delete type=0 #6
-2022/12/12-21:25:27.141 6194 Delete type=2 #7
-2022/12/12-21:25:27.141 6194 Delete type=2 #8
->>>>>>> 87b83b747ba4e9d5095f873d2ec69f918d3eed55
+2022/12/13-16:51:05.264 10a4c Reusing MANIFEST C:\Users\bryan\AppData\Local\Temp\flutter_tools.1a78f48a\flutter_tools_chrome_device.d6b60888\Default\Site Characteristics Database/MANIFEST-000001
+2022/12/13-16:51:05.264 10a4c Recovering log #10
+2022/12/13-16:51:05.264 10a4c Reusing old log C:\Users\bryan\AppData\Local\Temp\flutter_tools.1a78f48a\flutter_tools_chrome_device.d6b60888\Default\Site Characteristics Database/000010.log 
+2022/12/13-16:51:05.265 10a4c Delete type=2 #3
+2022/12/13-16:51:05.265 10a4c Delete type=0 #3
+2022/12/13-16:51:05.265 10a4c Delete type=0 #6
+2022/12/13-16:51:05.265 10a4c Delete type=2 #7
+2022/12/13-16:51:05.265 10a4c Delete type=2 #8

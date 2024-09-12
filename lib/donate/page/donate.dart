@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
+// var port = 'https://ecoist.up.railway.app';
+var port = '127.0.0.1:8000';
+
 void main() {
   runApp(const MyDonatePage());
 }
@@ -30,7 +33,7 @@ class _MyDonatePageState extends State<MyDonatePage> {
   }
 
   void donate(request, nominal, namaPohon, jumlahPohon, pesan) async {
-    await request.post('https://ecoist.up.railway.app/donate/flutter_donation/', {
+    await request.post('$port/donate/flutter_donation/', {
       "nominal": nominal,
       "namaPohon": namaPohon,
       "jumlahPohon": jumlahPohon,
